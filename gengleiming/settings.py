@@ -27,8 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = '/fortestapp/'
-
 # Application definition
 
 INSTALLED_APPS = [
