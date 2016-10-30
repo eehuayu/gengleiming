@@ -22,7 +22,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.HomeView.as_view(), name="home"),
-    url(r'^fortestapp/$', include("fortestapp.urls", namespace='fortestapp')),
+    url(r'^fortestapp/', include("fortestapp.urls", namespace='fortestapp')),
 ]
 
 
