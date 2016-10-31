@@ -1,49 +1,37 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-    <link rel="shortcut icon" href="{% static "gengleiming/img/favicon.ico" %}"/>
-    <title>{% block title %}起航{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    {% block title %}耿耿的起航点{% endblock %}
     {% block styles %}
-        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}"/>
+        <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'gengleiming/css/landing-page.css' %}" rel="stylesheet">
+        <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     {% endblock %}
-    {#	<link rel="stylesheet" href="{% static 'yunqi/css/swiper-3.3.1.min.css' %}">#}
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
+
 <body>
-{% block header %}
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" role="navigation">
-          <ul class="nav navbar-nav">
-            <li class="hidden-sm hidden-md"><a href="#" target="_blank">###</a></li>
-            <li><a href="#" target="_blank">###</a></li>
-{#            <li><a href="http://v4.bootcss.com/" target="_blank" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'v4doc'])">Bootstrap 4.0 预览</a></li>#}
-{#            <li><a href="/p/lesscss/" target="_blank" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'less'])">Less 教程</a></li>#}
-            <li><a href="#" target="_blank">###</a></li>
-            <li><a href="#" target="_blank">###</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right hidden-sm">
-            <li><a href="#">关于</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-{% endblock %}
 {% block content %}{% endblock %}
-</body>
+
 {% block scripts %}
-    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'jquery/jquery.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 {% endblock %}
+
+</body>
 </html>
