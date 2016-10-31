@@ -1,37 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="#">Start Bootstrap</a>
+                <a class="navbar-brand topnav" href="#">耿耿的主页</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
                     <li>
                         <a href="#services">Services</a>
                     </li>
                     <li>
                         <a href="#contact">Contact</a>
                     </li>
+                    <li>
+                        <a href="#about">关于</a>
+                    </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
 
@@ -39,35 +28,32 @@
     <a name="about"></a>
     <div class="intro-header">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Landing Page</h1>
-                        <h3>A Template by Start Bootstrap</h3>
+                        <h1>一切从这里开始</h1>
+                        <h3>我的个人网站，终于开始走出了第一步</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i
-                                        class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                                <a href="#" class="btn btn-default btn-lg"><i
+                                        class="fa fa-twitter fa-fw"></i> <span class="network-name">微博</span></a>
                             </li>
                             <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap"
+                                <a href="#"
                                    class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span
                                         class="network-name">Github</span></a>
                             </li>
                             <li>
                                 <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span
-                                        class="network-name">Linkedin</span></a>
+                                        class="network-name">个人博客</span></a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.intro-header -->
 
@@ -81,10 +67,8 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Death to the Stock Photo:<br>Special Thanks</h2>
-                    <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death
-                        to the Stock Photo</a> for providing the photographs that you see in this template. Visit their
-                        website to become a member.</p>
+                    <h2 class="section-heading">CODING<br>永无止境</h2>
+                    <p class="lead">我是要成为CODING之王的男人啊。</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="{% static 'gengleiming/img/ipad.png' %}" alt="">
@@ -105,12 +89,8 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
-                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free
-                        Photoshop
-                        actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their
-                        website to
-                        download some of their awesome, free photoshop actions!</p>
+                    <h2 class="section-heading">TRUTH<br>伴随成长</h2>
+                    <p class="lead">真理难明，有时它可以掀翻你从小到大的固有认知。</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                     <img class="img-responsive" src="{% static 'gengleiming/img/dog.png' %}" alt="">
@@ -131,11 +111,8 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
-                    <p class="lead">This template features the 'Lato' font, part of the <a target="_blank"
-                                                                                           href="http://www.google.com/fonts">Google
-                        Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font
-                        Awesome</a>.</p>
+                    <h2 class="section-heading">LIFE<br>必须精彩</h2>
+                    <p class="lead">不精彩不是人。</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="{% static 'gengleiming/img/phones.png' %}" alt="">
@@ -154,23 +131,25 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-6">
-                    <h2>Connect to Start Bootstrap:</h2>
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-3">
+                    <h2>联系我 ：</h2>
                 </div>
                 <div class="col-lg-6">
                     <ul class="list-inline banner-social-buttons">
                         <li>
-                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i
-                                    class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                            <a href="#" class="btn btn-default btn-lg"><i
+                                    class="fa fa-twitter fa-fw"></i> <span class="network-name">微博</span></a>
                         </li>
                         <li>
-                            <a href="https://github.com/IronSummitMedia/startbootstrap"
+                            <a href="#"
                                class="btn btn-default btn-lg"><i
                                     class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                         </li>
                         <li>
                             <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span
-                                    class="network-name">Linkedin</span></a>
+                                    class="network-name">邮件</span></a>
                         </li>
                     </ul>
                 </div>
@@ -189,11 +168,11 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="#">Home</a>
+                            <a href="#">主页</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#about">About</a>
+                            <a href="#about">关于</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
@@ -204,7 +183,7 @@
                             <a href="#contact">Contact</a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                    <p class="copyright text-muted small">Copyright &copy; 耿雷明 2016. 域名备案尚未完成</p>
                 </div>
             </div>
         </div>
