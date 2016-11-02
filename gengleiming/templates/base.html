@@ -55,9 +55,23 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#">登录</a>
-                </li>
+                {% if request.user %}
+                    <li>
+                        <a class="dropdown-toggle" type="" id="dropdownMenu1" data-toggle="dropdown">
+                            {{ request.user.first_name }}{{ request.user.last_name }}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">退出登录</a>
+                            </li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'account:login' %}">登录</a>
+                    </li>
+                {% endif %}
                 <li>
                     <a href="#about">About</a>
                 </li>
