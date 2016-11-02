@@ -55,10 +55,10 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                {% if request.user and request.user != AnonymousUser %}
+                {% if request.user.username %}
                     <li>
                         <a class="dropdown-toggle" type="" id="dropdownMenu1" data-toggle="dropdown">
-                            {{ request.user }}
+                            {{ request.user.username }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
