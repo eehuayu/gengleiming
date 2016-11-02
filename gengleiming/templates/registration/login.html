@@ -1,6 +1,35 @@
-<form action="" method="POST">
-    {% csrf_token %}
-    name: <input type="text" name="username">
-    password: <input type="password" name="password">
-    <button type="submit">提交</button>
-</form>
+{% extends "base.html" %}
+{% block title %}登陆界面{% endblock %}
+{% block content %}
+    <div class="container">
+        <form method="post" class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="username" class="col-sm-4 col-form-label">用户名</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-4 col-form-label">密码</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="密码">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary form-control">登录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        $(function () {
+            $('.navbar').removeClass('navbar-fixed-top');
+        });
+    </script>
+{% endblock %}
