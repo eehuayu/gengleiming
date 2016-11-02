@@ -1,5 +1,7 @@
 from django.views import generic
 
+from allapps.record.models import IpRecord
+
 
 class HomeView(generic.TemplateView):
     template_name = "gengleiming/home.html"
@@ -11,6 +13,8 @@ class HomeView(generic.TemplateView):
             client_ip = client_ip.split(",")[0]
         else:
             client_ip = self.request.META['REMOTE_ADDR']
-        print(client_ip)
-        ctx['ip'] = client_ip
+        if not client_ip:
+            client_ip = '异常'
+        if IpRecord.objects.count() < 10000:
+            IpRecord.objects.create(ip=client_ip)
         return ctx
