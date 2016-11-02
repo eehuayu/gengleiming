@@ -12,4 +12,5 @@ class HomeView(generic.TemplateView):
         else:
             client_ip = self.request.META['REMOTE_ADDR']
         print(client_ip)
+        ctx['ip'] = client_ip
         return ctx
