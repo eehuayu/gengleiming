@@ -55,7 +55,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                {% if request.user and request.user != "AnonymousUser" %}
+                {% if request.user and request.user != AnonymousUser %}
                     <li>
                         <a class="dropdown-toggle" type="" id="dropdownMenu1" data-toggle="dropdown">
                             {{ request.user }}
