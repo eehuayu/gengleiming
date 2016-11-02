@@ -58,7 +58,7 @@
                 {% if request.user %}
                     <li>
                         <a class="dropdown-toggle" type="" id="dropdownMenu1" data-toggle="dropdown">
-                            {{ request.user.first_name }}{{ request.user.last_name }}
+                            {{ request.user }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
