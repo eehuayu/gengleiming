@@ -1,6 +1,21 @@
-{% extends 'record/base.html' %}
+{% extends 'base.html' %}
 {% block content %}
-    {% for object in object_list %}
-        {{ object.ip }} -- {{ object.create_time }}  <br>
-    {% endfor %}
+    <div class="col-sm-offset-2" style="margin-top: 100px">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ip</th>
+                <th>访问时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for object in object_list %}
+                <tr>
+                    <td>{{ object.ip }}</td>
+                    <td>{{ object.create_time }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
