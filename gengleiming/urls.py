@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^fortestapp/', include("allapps.fortestapp.urls", namespace='fortestapp')),
     url(r'^account/', include("django.contrib.auth.urls", namespace='account')),
     url(r'^record/', include("allapps.record.urls", namespace='record')),
+    url(r'^cms/', include("allapps.cms.urls", namespace='cms')),
 ]
-
 
 urlpatterns += staticfiles_urlpatterns()  # 配置{% load static %}：runserver无需此步骤，其他服务器需要，当然用{% load staticfiles %}标签可代替此步骤

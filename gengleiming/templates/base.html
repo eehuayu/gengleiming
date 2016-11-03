@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{% block title %}耿耿的起航点{% endblock %}</title>
-    <link rel="shortcut icon" href="{% static 'gengleiming/img/favicon.ico' %}"/>
+    <link rel="shortcut icon" href="{% static 'gengleiming/img/favico.ico' %}"/>
     {% block styles %}
         <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'gengleiming/css/landing-page.css' %}" rel="stylesheet">
@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#code">代码之路</a>
+                    <a href="{% url 'cms:index' %}">代码之路</a>
                 </li>
                 <li>
                     <a href="#life">生活点滴</a>

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'gunicorn',
     'allapps.fortestapp',
     'allapps.record',
+    'allapps.cms',
 ]
 
 MIDDLEWARE = [

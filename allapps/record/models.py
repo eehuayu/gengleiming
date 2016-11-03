@@ -7,3 +7,4 @@ class IpRecord(models.Model):
 
     class Meta:
         verbose_name = "访问者IP历史记录"
+        ordering = ('-create_time',)
