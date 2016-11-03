@@ -1,0 +1,14 @@
+{% extends 'record/base.html' %}
+{% block content %}
+    {% for object in object_list %}
+        {{ object.ip }} -- {{ object.create_time }}  <br>
+    {% endfor %}
+{% endblock %}
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        $(function () {
+            $('.navbar').removeClass('navbar-fixed-top').removeClass('navbar-default').addClass('navbar-inverse');
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}记录{% endblock %}
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        $(function () {
+            $('.navbar').removeClass('navbar-fixed-top').removeClass('navbar-default').addClass('navbar-inverse');
+        });
+    </script>
+{% endblock %}

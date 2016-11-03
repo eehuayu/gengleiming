@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from .models import IpRecord
+
+class IpRecordListView(generic.ListView):
+    model = IpRecord
+    template_name = "record/index.html"
