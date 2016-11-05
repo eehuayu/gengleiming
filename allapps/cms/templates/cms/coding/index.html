@@ -15,46 +15,93 @@
     <link href="#" rel="icon">
 </head>
 
-<body><div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3 left-side">
-                <img alt="Bootstrap Image Preview" src="{% static 'gengleiming/img/leiming.png' %}" width="60px" height="60px" class="img-circle center-block" />
-		</div>
-		<div class="col-md-9 col-md-offset-3">
-			<ul class="nav nav-pills">
-				<li class="active">
-					 <a href="#"> <span class="badge pull-right">42</span> Home</a>
-				</li>
-				<li>
-					 <a href="#"> <span class="badge pull-right">16</span> More</a>
-				</li>
-			</ul>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 left-side" style="padding-right: 0px">
+            <img alt="Bootstrap Image Preview" src="{% static 'gengleiming/img/leiming.png' %}"
+                 style="margin-top: 100px" width="80px"
+                 height="80px" class="img-circle center-block"/>
+            <h3 class="text-center"><b> 耿耿爆破</b></h3>
+            <p class="text-muted text-center">Shut up and show me the code!</p>
+            <p class="text-muted text-center">Shut up and show me the code!</p>
+            <br>
+            <table class=" text-center">
+                <tr>
+                    <td style="border-right: 1px solid #d9d9d9;width: 20%">1000</td>
+                    <td style="border-right: 1px solid #d9d9d9;width: 20%">1000</td>
+                    <td style="border-right: 1px solid #d9d9d9;width: 20%">1000</td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px solid #d9d9d9;width: 20%">总浏览数</td>
+                    <td style="border-right: 1px solid #d9d9d9;width: 20%">总浏览数</td>
+                    <td style="border-right: 1px solid #d9d9d9;width: 20%">总浏览数</td>
+                </tr>
+            </table>
+            <br>
+            <button type="button" class="btn btn-info form-control">写文章</button>
 
-			<ul class="pagination">
-				<li>
-					<a href="#">Prev</a>
-				</li>
-				<li>
-					<a href="#">1</a>
-				</li>
-				<li>
-					<a href="#">2</a>
-				</li>
-				<li>
-					<a href="#">3</a>
-				</li>
-				<li>
-					<a href="#">4</a>
-				</li>
-				<li>
-					<a href="#">5</a>
-				</li>
-				<li>
-					<a href="#">Next</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+            <div class="list-group text-center" style="margin-top: 100px;margin-right: -1px;">
+                <h4><strong><i class="glyphicon glyphicon-book"></i> 文章分类:</strong></h4>
+                <hr width="100px">
+                <div class="list-group-item">
+                    <strong><i class="glyphicon glyphicon-list-alt"></i> 代码之路</strong> <span class="badge">14</span>
+                </div>
+                <div class="list-group-item article-group">
+                    <strong><i class="glyphicon glyphicon-list-alt"></i> 代码之路</strong><span class="badge">14</span>
+                </div>
+                <div class="list-group-item">
+                    <strong><i class="glyphicon glyphicon-list-alt"></i> 代码之路</strong><span class="badge">14</span>
+                </div>
+            </div>
+            {#            <ul class="list-unstyled center-block" style="margin-top: 100px">#}
+            {#                <span class="label label-info">文章分类：</span>#}
+            {#				<li>#}
+            {#					Lorem ipsum dolor sit amet#}
+            {#				</li>#}
+            {#				<li>#}
+            {#					Consectetur adipiscing elit#}
+            {#				</li>#}
+            {#				<li>#}
+            {#					Integer molestie lorem at massa#}
+            {#				</li>#}
+            {#			</ul>#}
+        </div>
+        <div class="col-md-9 col-md-offset-3">
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">More</a>
+                </li>
+            </ul>
+
+            <ul class="pagination">
+                <li>
+                    <a href="#">Prev</a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">4</a>
+                </li>
+                <li>
+                    <a href="#">5</a>
+                </li>
+                <li>
+                    <a href="#">Next</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 </body>
 </html>
