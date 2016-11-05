@@ -8,154 +8,74 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>耿雷明 - 代码之路</title>
-    <link rel="stylesheet" media="all" href="{% static 'cms/coding/css/qqq.css' %}"/>
-    <link rel="stylesheet" media="all" href="{% static 'cms/coding/css/www.css' %}"/>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'cms/coding/css/coding.css' %}" rel="stylesheet">
+    <script src="{% static 'jquery/jquery.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <link href="#" rel="icon">
 </head>
 
-<body class="user output zh cn win reader-day-mode reader-font2" data-js-module="user-show" data-locale="zh-CN">
-
-<div class="row-fluid">
-    <!-- aside -->
-    <div class="user-aside span3">
-        <div class="people">
-            <div class="basic-info">
-                <div class="avatar">
-                    <img src="{% static 'gengleiming/img/leiming.png' %}"
-                         alt="100"/>
-                </div>
-                <h3><a href="#">耿雷明</a></h3>
-                <div class="btn-group" id="follow_mail_block_user_1583317">
-                    <div class="btn btn-small btn-success follow">
-                        <a data-signin-link="true" data-toggle="modal" href="#"><i class="fa fa-plus"></i>
-                            <span>添加关注</span></a>
-                    </div>
-                </div>
-                <div class="about">
-                    <p class="intro">耿雷明，coder<br>shut up and show me the code!</p>
-                </div>
-            </div>
-            <div class="user-stats">
-                <ul class="clearfix">
-                    {#                    <li>#}
-                    {#                        <a href="#"><b>61</b><span>关注</span></a>#}
-                    {#                    </li>#}
-                    {#                    <li>#}
-                    {#                        <a href="#"><b>302</b><span>粉丝</span></a>#}
-                    {#                    </li>#}
-                    {#                    <br>#}
-                    <li>
-                        <a href="#"><b>0</b><span>文章</span></a>
-                    </li>
-                    <li>
-                        <a><b>0</b><span>字数</span></a>
-                    </li>
-                    <li>
-                        <a><b>0</b><span>点赞</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- <hr> notebooks -->
-        <div class="my-books">
-            <h5 class="title">文章分类：</h5>
-            <ul class="unstyled">
-                <li><a class="fa fa-book" href="#"> 自我管理</a></li>
-                <li><a class="fa fa-book" href="#"> 好好吃饭</a></li>
-                <li><a class="fa fa-book" href="#"> 靖宁的下午茶</a></li>
-                <li><a class="fa fa-book" href="#"> 日记本</a></li>
-                <li><a class="fa fa-book" href="#"> 随笔</a></li>
-            </ul>
-        </div>
-
-    </div>
-    <!-- content -->
-    <div class="span9 offset3 recent-post">
-        <!-- navigation -->
-        <ul class="nav nav-tabs nav-articles">
-            <li class="active">
-                <a data-pjax="list-container" href="#">
-                    <i class="fa fa-file-text-o"></i> 最新文章
-                </a></li>
-            <li class="">
-                <a data-pjax="list-container" href="#">
-                    <i class="fa fa-users"></i> 最新动态
-                </a></li>
-            <li class="">
-                <a data-pjax="list-container" href="#">
-                    <i class="fa fa-signal"></i> 热门文章
-                </a></li>
-        </ul>
-        <div class="tab-content">
-            <div id="list-container" class="tab-pane active">
-                <ul class="article-list latest-notes">
-                    <li class=have-img>
-                        <a class="wrap-img" href="/p/9331441975a0"><img
-                                src="http://upload-images.jianshu.io/upload_images/1583317-b278b3ead1ac1007.jpg?imageMogr2/auto-orient/strip%7CimageView2/1/w/300/h/300"
-                                alt="300"/></a>
-                        <div>
-                            <p class="list-top">
-                                <a class="author-name blue-link" target="_blank" href="/users/58c0237bdc37">耿雷明</a>
-                                <em>·</em>
-                                <span class="time" data-shared-at="2016-10-31T09:21:50+08:00">5天之前</span>
-                            </p>
-                            <h4 class="title"><a target="_blank" href="/p/9331441975a0">这样做了半年，我终于养成了阅读这个小习惯</a></h4>
-                            <div class="list-footer">
-                                <a target="_blank" href="/p/9331441975a0">
-                                    阅读 5074
-                                </a> <a target="_blank" href="/p/9331441975a0#comments">
-                                · 评论 62
-                            </a> <span> · 喜欢 298</span>
-                                <span> · 打赏 6</span>
-
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class=have-img>
-                        <a class="wrap-img" href="/p/9b22dd000ec0"><img
-                                src="http://upload-images.jianshu.io/upload_images/1583317-61126b934e9edc62.jpg?imageMogr2/auto-orient/strip%7CimageView2/1/w/300/h/300"
-                                alt="300"/></a>
-                        <div>
-                            <p class="list-top">
-                                <a class="author-name blue-link" target="_blank" href="/users/58c0237bdc37">靖宁</a>
-                                <em>·</em>
-                                <span class="time" data-shared-at="2016-10-05T10:12:37+08:00">5天之前</span>
-                            </p>
-                            <h4 class="title"><a target="_blank" href="/p/9b22dd000ec0">一场公益组织总结会告诉我的事</a></h4>
-                            <div class="list-footer">
-                                <a target="_blank" href="/p/9b22dd000ec0">
-                                    阅读 593
-                                </a> <a target="_blank" href="/p/9b22dd000ec0#comments">
-                                · 评论 1
-                            </a> <span> · 喜欢 3</span>
-                                <span> · 打赏 5</span>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="list-top">
-                                <a class="author-name blue-link" target="_blank" href="/users/58c0237bdc37">靖宁</a>
-                                <em>·</em>
-                                <span class="time" data-shared-at="2016-09-30T15:52:52+08:00">5天之前</span>
-                            </p>
-                            <h4 class="title"><a target="_blank" href="/p/b3fb103fd293">【 午后随想】</a></h4>
-                            <div class="list-footer">
-                                <a target="_blank" href="/p/b3fb103fd293">
-                                    阅读 7
-                                </a> <a target="_blank" href="/p/b3fb103fd293#comments">
-                                · 评论 0
-                            </a> <span> · 喜欢 1</span>
-
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<body><div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4 left-side">
+			<img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" class="img-circle" />
+		</div>
+		<div class="col-md-8 col-md-offset-4">
+			<ul class="nav nav-pills">
+				<li class="active">
+					 <a href="#"> <span class="badge pull-right">42</span> Home</a>
+				</li>
+				<li>
+					 <a href="#"> <span class="badge pull-right">16</span> More</a>
+				</li>
+			</ul>
+			<div class="tabbable" id="tabs-355603">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-745591" data-toggle="tab">Section 1</a>
+					</li>
+					<li>
+						<a href="#panel-57639" data-toggle="tab">Section 2</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-745591">
+						<p>
+							I'm in Section 1.
+						</p>
+					</div>
+					<div class="tab-pane" id="panel-57639">
+						<p>
+							Howdy, I'm in Section 2.
+						</p>
+					</div>
+				</div>
+			</div>
+			<ul class="pagination">
+				<li>
+					<a href="#">Prev</a>
+				</li>
+				<li>
+					<a href="#">1</a>
+				</li>
+				<li>
+					<a href="#">2</a>
+				</li>
+				<li>
+					<a href="#">3</a>
+				</li>
+				<li>
+					<a href="#">4</a>
+				</li>
+				<li>
+					<a href="#">5</a>
+				</li>
+				<li>
+					<a href="#">Next</a>
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>
 </body>
 </html>
