@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>代码之路</title>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'cms/coding/css/coding.css' %}" rel="stylesheet">
+    <script src="{% static 'jquery/jquery.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <link href="#" rel="icon">
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+        {#        <div class="col-md-1 left1-side" style="background: url({% static 'gengleiming/img/intro-bg.jpg' %})">#}
+        {#        </div>#}
+        <div class="col-md-3 left-side">
+            <div>
+                <img alt="Bootstrap Image Preview" src="{% static 'gengleiming/img/leiming.png' %}"
+                     style="margin-top: 100px" width="80px"
+                     height="80px" class="img-circle center-block"/>
+
+                <h3 class="text-center"><b> 耿耿爆破</b></h3>
+
+                <p class="text-muted text-center">Shut up and show me the code!</p>
+                <p class="text-muted text-center">Shut up and show me the code!</p>
+            </div>
+            <br>
+            <table class="text-center stat-table">
+                <tr>
+                    <td>1000</td>
+                    <td>1000</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>总浏览数</td>
+                    <td>总浏览数</td>
+                    <td>总浏览数</td>
+                </tr>
+            </table>
+            <br><br>
+
+            {#            <div class="btn-group btn-group-vertical">#}
+            {##}
+            {#				<button class="btn btn-default form-control" type="button">#}
+            {#					<em class="glyphicon glyphicon-align-left"></em> Left#}
+            {#				</button>#}
+            {#				<button class="btn btn-default form-control" type="button">#}
+            {#					<em class="glyphicon glyphicon-align-center"></em> Center#}
+            {#				</button>#}
+            {#				<button class="btn btn-default form-control" type="button">#}
+            {#					<em class="glyphicon glyphicon-align-right"></em> Right#}
+            {#				</button>#}
+            {#				<button class="btn btn-default form-control" type="button">#}
+            {#					<em class="glyphicon glyphicon-align-justify"></em> Justify#}
+            {#				</button>#}
+            {#			</div>#}
+            {#            <div class="list-group text-center">#}
+            {#                <h4><strong><i class="glyphicon glyphicon-book"></i> 博客分类:</strong></h4>#}
+            {#                <hr width="100px">#}
+            {#                <button class="list-group-item btn btn-active">#}
+            {#                    <strong><i class="glyphicon glyphicon-list-alt"></i> 代码之路</strong> <span class="badge">14</span>#}
+            {#                </button>#}
+            {#                <button class="list-group-item btn">#}
+            {#                    <strong><i class="glyphicon glyphicon-list-alt"></i> 代码之路</strong><span class="badge">14</span>#}
+            {#                </button>#}
+            {#                <button class="list-group-item btn">#}
+            {#                    <strong><i class="glyphicon glyphicon-list-alt"></i> 代码之路</strong><span class="badge">14</span>#}
+            {#                </button>#}
+            {#            </div>#}
+            <div>
+                <button type="button" class="btn btn-warning form-control"><span class="glyphicon glyphicon-edit"></span>
+                    写文章
+                </button>
+            </div>
+            <div class="text-center">
+                <br> <br>
+                <h4><strong><i class="glyphicon glyphicon-book"></i> 博客分类:</strong></h4>
+                <hr width="100px">
+                {#                <div class="btn-group btn-group-vertical">#}
+                {#				<button class="btn btn-info" type="button">#}
+                {#					<em class="glyphicon glyphicon-list-alt"></em> 代码之路#}
+                {#				</button>#}
+                {#				<button class="btn btn-info" type="button">#}
+                {#					<em class="glyphicon glyphicon-list-alt"></em> 代码之路#}
+                {#				</button>#}
+                {#				<button class="btn btn-info" type="button">#}
+                {#					<em class="glyphicon glyphicon-list-alt"></em> 代码之路#}
+                {#				</button>#}
+                {#				<button class="btn btn-info" type="button">#}
+                {#					<em class="glyphicon glyphicon-list-alt"></em> 代码之路#}
+                {#				</button>#}
+                {#			</div>#}
+                <a href=""><span class="label" style="color: gray;font-size: 14px"> <i
+                        class="glyphicon glyphicon-list-alt"></i>代码之路</span></a><br>
+                <a href=""><span class="label" style="color: gray;font-size: 14px"> <i
+                        class="glyphicon glyphicon-list-alt"></i>代码之路</span></a><br>
+                <a href=""><span class="label" style="color: gray;font-size: 14px"> <i
+                        class="glyphicon glyphicon-list-alt"></i>代码之路</span></a><br>
+                <a href=""><span class="label" style="color: gray;font-size: 14px"> <i
+                        class="glyphicon glyphicon-list-alt"></i>代码之路</span></a><br>
+            </div>
+        </div>
+
+        <div class="col-md-9 col-md-offset-3">
+            <br>
+            <h2>
+                <div class="row">
+                    <div style="color: #dd4814" class="col-md-6">
+                       <b> 代码之路</b>
+                    </div>
+                    <div class="col-lg-3 col-lg-offset-3">
+                        <div class="input-group">
+                            <input type="text" class="input-sm form-control" placeholder="搜索文章">
+                    <span class="input-group-btn">
+                        <button class="btn btn-sm btn-warning" type="button">搜索</button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </h2>
+            <hr>
+
+            {% block right_content %}
+            {% endblock %}
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
