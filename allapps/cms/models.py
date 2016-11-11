@@ -27,7 +27,7 @@ class KeyWord(Base):
 class Content(Base):
     from django.contrib.auth.models import User
     user = models.ForeignKey(User, verbose_name="用户", on_delete=models.SET_NULL, null=True, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.PROTECT)  # 删除外键之前要先删除级联的书籍，否则报错
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)  # 删除外键之前要先删除级联，否则报错
     key_word = models.ManyToManyField(KeyWord)
     title = models.CharField(verbose_name="标题", max_length=255)
     content = models.TextField(verbose_name="内容")
