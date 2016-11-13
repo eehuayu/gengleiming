@@ -9,30 +9,63 @@
     {{ block.super }}
     <script type="text/javascript" src="{% static 'wangEdit/js/wangEditor.min.js' %}"></script>
     <script type="text/javascript">
-{#        $('body').attr("style", "overflow:scroll;overflow-y:hidden;overflow-x:hidden");#}
+        {#        $('body').attr("style", "overflow:scroll;overflow-y:hidden;overflow-x:hidden");#}
         var editor = new wangEditor('id_content');
+        editor.config.menuFixed = false;
         editor.create();
+        // 关闭菜单栏fixed
+
     </script>
 {% endblock %}
 
 {% block right_content %}
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal" role="form" action="{% url 'cms:coding-write' %}" method="post">
+        {% csrf_token %}
         <div class="form-group">
-            <div class="">
-                <input style="border: white;height: 50px;" type="text" class="form-control" id="id_title" name="title" placeholder="title">
+            <input style="border-top: white;border-left: white;border-right: white;height: 50px;" type="text"
+                   class="form-control" id="id_title" name="title"
+                   placeholder="title" required>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                <select name="category" id="id_category" class="form-control" required>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="id_keyword_add" name="keyword_add"
+                           placeholder="请加入关键字，以逗号分隔">
+
+                    <select name="keyword" id="id_keyword">
+                        {% for keyword in keywords %}
+                            <option value="{{ keyword.id }}">{{ keyword.word }}</option>
+                        {% endfor %}
+                    </select>
+
+                    {#                    <div class="input-group-btn">#}
+                    {#                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"#}
+                    {#                                value="Action">#}
+                    {#                            插入已有关键字#}
+                    {#                        </button>#}
+                    {#                        <ul class="dropdown-menu dropdown-menu-right" role="menu">#}
+                    {#                            <li><a href="javascript:void(0)">Action</a></li>#}
+                    {#                            <li><a href="#">Another action</a></li>#}
+                    {#                            <li><a href="#">Something else here</a></li>#}
+                    {#                        </ul>#}
+                    {#                    </div>#}
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <div class="">
-                <textarea style="height: 600px;" class="form-control" id="id_content" name="content" placeholder="..." style="">
+                <textarea class="form-control" style="height: 1000px" id="id_content" name="content" required>
                 </textarea>
-            </div>
         </div>
 
-{#        <div class="form-group">#}
-{#            <div class="col-sm-offset-2 col-sm-10">#}
-{#                <button type="submit" class="btn btn-default">提交</button>#}
-{#            </div>#}
-{#        </div>#}
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary form-control">提交</button>
+        </div>
     </form>
 {% endblock %}
