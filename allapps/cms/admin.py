@@ -13,6 +13,7 @@ class KeyWordAdmin(admin.ModelAdmin):
 
 
 class ContentAdmin(admin.ModelAdmin):
+    filter_horizontal = ("keyword", )
     list_display = ("user", "category", "title", "content", "visit_count", "update_time")
 
 admin.site.register(models.Category, CategoryAdmin)
