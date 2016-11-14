@@ -23,6 +23,7 @@
         {#        <div class="col-md-1 left1-side" style="background: url({% static 'gengleiming/img/intro-bg.jpg' %})">#}
         {#        </div>#}
         <div class="col-md-3 left-side">
+
             <div>
                 <img alt="Bootstrap Image Preview" src="{% static 'gengleiming/img/leiming.png' %}"
 
@@ -48,10 +49,13 @@
             </table>
             <br><br>
             <div>
-                <button type="button" class="btn btn-warning form-control" id="write" name="write"><span
-                        class="glyphicon glyphicon-edit"></span>
-                    写文章
-                </button>
+                {% if perms.report.write %}
+                    <button type="button" class="btn btn-warning form-control" id="write" name="write"><span
+                            class="glyphicon glyphicon-edit"></span>
+                        写文章
+                    </button>
+                {% endif %}
+
             </div>
             <div class="text-center">
                 <br> <br>
@@ -66,44 +70,56 @@
                 <a href=""><span class="label" style="color: gray;font-size: 14px"> <i
                         class="glyphicon glyphicon-list-alt"></i>代码之路</span></a><br>
             </div>
+            <div style="position: absolute; bottom: 30px">
+                <hr>
+                <div class="form-inline">
+                    <a class="btn btn-sm btn-warning" type="button" href="{% url 'home' %}">返回首页</a>
+                    <a class="btn btn-sm btn-warning" type="button" href="#">文章管理</a>
+                </div>
+
+            </div>
+
         </div>
 
         <div class="col-md-9 col-md-offset-3">
-{#            <br>#}
-{#            <h2>#}
-{#                <div class="row">#}
-{#                    <div style="color: #dd4814" class="col-md-6">#}
-{#                        <b> 代码之路</b>#}
-{#                    </div>#}
-{#                    <div class="col-lg-3 col-lg-offset-3">#}
-{#                        <div class="input-group">#}
-{#                            <input type="text" class="input-sm form-control" placeholder="搜索文章">#}
-{#                    <span class="input-group-btn">#}
-{#                        <button class="btn btn-sm btn-warning" type="button">搜索</button>#}
-{#                    </span>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <hr>#}
-{#            </h2>#}
+            {#            <br>#}
+            {#            <h2>#}
+            {#                <div class="row">#}
+            {#                    <div style="color: #dd4814" class="col-md-6">#}
+            {#                        <b> 代码之路</b>#}
+            {#                    </div>#}
+            {#                    <div class="col-lg-3 col-lg-offset-3">#}
+            {#                        <div class="input-group">#}
+            {#                            <input type="text" class="input-sm form-control" placeholder="搜索文章">#}
+            {#                    <span class="input-group-btn">#}
+            {#                        <button class="btn btn-sm btn-warning" type="button">搜索</button>#}
+            {#                    </span>#}
+            {#                        </div>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#                <hr>#}
+            {#            </h2>#}
 
 
             {% block right_content %}
             {% endblock %}
 
         </div>
+
     </div>
 </div>
 {% block scripts %}
     <script src="{% static 'jquery/jquery.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script>
-    $(function(){
-        $('#write').click(function() {
-            window.location.href = "{% url 'cms:coding-write' %}";
-        });
-    });
-    </script>
+    {% if perms.report.write %}
+        <script>
+            $(function () {
+                $('#write').click(function () {
+                    window.location.href = "{% url 'cms:coding-write' %}";
+                });
+            });
+        </script>
+    {% endif %}
 {% endblock %}
 </body>
 </html>

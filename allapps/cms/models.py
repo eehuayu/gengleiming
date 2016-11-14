@@ -45,3 +45,4 @@ class Content(Base):
 
     class Meta:
         verbose_name = verbose_name_plural = "内容"
+        permissions = (("write", "写文章"), )

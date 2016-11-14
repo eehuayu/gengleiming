@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -9,7 +10,8 @@ class IndexView(generic.TemplateView):
     template_name = "cms/coding/index.html"
 
 
-class CodeCreateView(generic.CreateView):
+class CodeCreateView(generic.CreateView, PermissionRequiredMixin):
+    permission_required = ("dormitory.write", )
     template_name = "cms/coding/write.html"
     model = Content
     form_class = CmsForm
