@@ -12,6 +12,7 @@ class Base(models.Model):
 
 class Category(Base):
     name = models.CharField(verbose_name="名称", max_length=255, unique=True)
+    description = models.TextField(verbose_name="描述", null=True, blank=True)
 
     def __str__(self):
         return self.name

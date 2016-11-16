@@ -5,19 +5,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'wangEdit/css/wangEditor.min.css' %}">
 {% endblock %}
 
-{% block scripts %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'wangEdit/js/wangEditor.min.js' %}"></script>
-    <script type="text/javascript">
-        {#        $('body').attr("style", "overflow:scroll;overflow-y:hidden;overflow-x:hidden");#}
-        var editor = new wangEditor('id_content');
-        editor.config.menuFixed = false;
-        editor.create();
-        // 关闭菜单栏fixed
-
-    </script>
-{% endblock %}
-
 {% block right_content %}
     <form class="form-horizontal" role="form" action="{% url 'cms:coding-write' %}" method="post">
         {% csrf_token %}
@@ -35,7 +22,7 @@
                         {% endfor %}
                     </select>
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" title="增加分类"><span
+                        <button class="btn btn-default" type="button" title="增加分类" data-toggle="modal" data-target="#create_category"><span
                                 class="glyphicon glyphicon-plus"></span></button>
                     </span>
                 </div>
@@ -60,4 +47,36 @@
             <button type="submit" class="btn btn-primary form-control">提交</button>
         </div>
     </form>
+    <!-- model -->
+    <div class="modal fade" id="create_category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">增加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="输入新类别">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">增加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'wangEdit/js/wangEditor.min.js' %}"></script>
+    {#    <script type="text/javascript" src="{% static 'resource/js/jqExtend.js' %}"></script>#}
+    <script type="text/javascript">
+        var editor = new wangEditor('id_content');
+        editor.config.menuFixed = false;
+        editor.create();
+
+
+    </script>
 {% endblock %}
