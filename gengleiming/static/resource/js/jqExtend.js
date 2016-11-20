@@ -1,4 +1,4 @@
-$.b_alert = function (message) {
+$.confirm = function (data, fn) {
     if ($('#my-modal-container').length == 0) {
         var container = $.here_doc(function () {
             /*
@@ -7,19 +7,34 @@ $.b_alert = function (message) {
              <div class="modal-content">
              <div class="modal-header">
              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-             <h4 class="modal-title" id="my-modal-title"></h4>
+             <h4 class="modal-title" id="my-modal-title">信息</h4>
              </div>
-             <div class="modal-body"></div>
+             <div class="modal-body" id="my-modal-body"></div>
+             <div class="modal-footer">
+             <button type="button" class="btn btn-primary" data-dismiss="modal" id="my-modal-footer">确认</button>
+             </div>
              </div>
              </div>
              </div>
              */
         });
         $("body").append(container);
+        // $()
     }
-    if(message && message.length){
-        $('#my-modal-container .modal-body').html(message);
-        $('#my-modal-container').modal('show');
+    if(typeof(data) == "string"){
+        $('#my-modal-container .modal-body').html(data);
+    }else if(typeof(data) == "object"){
+        if(data.title){
+            $("#my-modal-container .modal-header h4").html(data.title);
+        }
+        if(data.message){
+            $("#my-modal-container .modal-body").html(data.message);
+        }
+    }
+    $('#my-modal-container').modal('show');
+    if(fn && typeof(fn) == "function"){
+        $("#my-modal-container .modal-footer #my-modal-footer").off();
+        $("#my-modal-container .modal-footer #my-modal-footer").on("click", fn);
     }
 };
 

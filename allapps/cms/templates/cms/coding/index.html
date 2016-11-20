@@ -97,6 +97,11 @@
     <div class="form-horizontal"><button type="button" class="btn btn-warning">最新文章</button> <button type="button" class="btn btn-warning">最热文章</button></div>
     <hr>
     <div>
+    {% for content in content_list %}
+        {{ content.title }}
+        {{ content.content|safe }}
+    {% endfor %}
+
         <p>1</p>
         <p>1</p>
         <p>1</p>

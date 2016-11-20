@@ -103,14 +103,14 @@
 
             {% block right_content %}
             {% endblock %}
-
         </div>
-
     </div>
 </div>
 {% block scripts %}
-    <script src="{% static 'jquery/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery/jquery.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'resource/js/jqExtend.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery/jquery.cookie.js' %}"></script>
     {% if perms.report.write %}
         <script>
             $(function () {

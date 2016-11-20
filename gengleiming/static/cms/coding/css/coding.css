@@ -7,6 +7,10 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 /*position: fixed;*/
 /*}*/
 
+body {
+    padding: 0px !important;
+}
+
 .left-side {
     top: 0px;
     height: 100%;

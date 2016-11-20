@@ -22,7 +22,8 @@
                         {% endfor %}
                     </select>
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" title="增加分类" data-toggle="modal" data-target="#create_category"><span
+                        <button class="btn btn-default" type="button" title="增加分类" data-toggle="modal"
+                                data-target="#create_category"><span
                                 class="glyphicon glyphicon-plus"></span></button>
                     </span>
                 </div>
@@ -30,9 +31,9 @@
             <div class="col-md-6">
                 <div class="input-group">
                     <input type="text" class="form-control" id="id_keyword_add" name="keyword_add"
-                           placeholder="请加入关键字，以逗号分隔">
+                           placeholder="请加入关键字，以逗号分隔，最多不超过十个">
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-default">
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#keyword_list">
                             选择已有关键字
                         </button>
                     </div>
@@ -47,8 +48,10 @@
             <button type="submit" class="btn btn-primary form-control">提交</button>
         </div>
     </form>
+
     <!-- model -->
-    <div class="modal fade" id="create_category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="create_category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -57,11 +60,43 @@
                     <h4 class="modal-title" id="myModalLabel">增加分类</h4>
                 </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control" placeholder="输入新类别">
+                    <div>
+                        <input type="text" class="form-control" id="category_name" name="category_name"
+                               placeholder="输入新分类">
+                    </div>
+                    <div>
+                        <textarea style="resize:none" name="" id="category_description" name="category_description"
+                                  cols="30" rows="10"
+                                  class="form-control"
+                                  placeholder="请输入描述"></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary">增加</button>
+                    <button type="button" class="btn btn-primary" id="category_add">增加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="keyword_list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">选择关键字</h4>
+                </div>
+                <div class="modal-body">
+                    {% for keyword in keywords %}
+                        <input type="radio" name="{{ keyword }}" id="{{ keyword }}" value="{{ keyword }}">
+                        <label for="{{ keyword }}">{{ keyword }} </label>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="add_keywords_tolist">增加</button>
                 </div>
             </div>
         </div>
@@ -71,12 +106,48 @@
 {% block scripts %}
     {{ block.super }}
     <script type="text/javascript" src="{% static 'wangEdit/js/wangEditor.min.js' %}"></script>
-    {#    <script type="text/javascript" src="{% static 'resource/js/jqExtend.js' %}"></script>#}
+
     <script type="text/javascript">
         var editor = new wangEditor('id_content');
         editor.config.menuFixed = false;
         editor.create();
 
-
+        $("#add_keywords_tolist").click(function () {
+            var str = $("#id_keyword_add").val() == ''?'':',';
+            $("#keyword_list .modal-body input:checked").each(function(){
+                str = str + $(this).val() + ','
+            });
+            str = str.slice(0, -1);
+            $("#id_keyword_add").val($("#id_keyword_add").val() + str);
+            $("#keyword_list").modal('hide');
+            $("#keyword_list .modal-body input").prop("checked", false);
+        });
+        {#        var reset_modal = function (data) {#}
+        {#            var origin_html = $('#create_category').html();#}
+        {#            $('#create_category .modal-header h4').html("信息");#}
+        {#            $('#create_category .modal-body').html(data);#}
+        {#            $('#create_category .modal-footer').html('<button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">确认</button>');#}
+        {#            $("#yes").on("click", function(){#}
+        {#                $('#create_category').modal("hide");#}
+        {#                $('#create_category').html(origin_html);#}
+        {#            })#}
+        {#        };#}
+        $('#category_add').click(function () {
+            var category_name = $("#category_name").val();
+            var category_description = $("#category_description").val();
+            $.ajax({
+                "type": "POST",
+                "url": "{% url 'cms:category-create' %}",
+                "data": {
+                    "name": category_name,
+                    "description": category_description,
+                    "csrfmiddlewaretoken": $.cookie('csrftoken'),
+                },
+                "success": function (response) {
+                    $('#create_category').modal("hide");
+                    $.confirm({"title": "提示", "message": response});
+                }
+            });
+        });
     </script>
 {% endblock %}
