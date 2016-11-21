@@ -57,15 +57,15 @@ body {
     border-right: 1px solid #d9d9d9;
 }
 
-.carousel_text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 15px;
-    background: #333333;
-    background: rgba(0, 0, 0, 0.75);
-}
+/*.carousel_text {*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0px;*/
+    /*padding: 15px;*/
+    /*background: #333333;*/
+    /*background: rgba(0, 0, 0, 0.75);*/
+/*}*/
 
 @media screen and (max-width: 1024px) {
     .left-side {

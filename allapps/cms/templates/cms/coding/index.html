@@ -33,9 +33,9 @@
                 <img alt="Carousel Bootstrap First"
                      src="{% static 'cms/coding/img/coding_title1.jpg' %}" width="100%" height="100%"/>
                 <div class="carousel-caption carousel_text">
-                    <h3>
+                    <h4>
                         First Thumbnail label
-                    </h3>
+                    </h4>
                     <p>
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
                         porta
@@ -48,9 +48,9 @@
                 <img alt="Carousel Bootstrap Second"
                      src="{% static 'cms/coding/img/coding_title2.jpg' %}" width="100%" height="100%"/>
                 <div class="carousel-caption carousel_text">
-                    <h3>
+                    <h4>
                         Second Thumbnail label
-                    </h3>
+                    </h4>
                     <p>
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
                         porta
@@ -63,9 +63,9 @@
                 <img alt="Carousel Bootstrap Third"
                      src="{% static 'cms/coding/img/coding_title3.jpg' %}" width="100%" height="100%"/>
                 <div class="carousel-caption carousel_text">
-                    <h3>
+                    <h4>
                         Third Thumbnail label
-                    </h3>
+                    </h4>
                     <p>
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
                         porta
@@ -98,8 +98,13 @@
     <hr>
     <div>
     {% for content in content_list %}
-        {{ content.title }}
-        {{ content.content|safe }}
+        <span style="font-size: 10px; color: gray">大约3小时前</span>
+        <h4 style="font-weight: bold;"><a href="" style="color: #555555">{{ content.title }}</a></h4>
+{#        <p>{{ content.content|safe }}</p>#}
+        <span style="font-size: 10px;color: gray;">阅读 100 ·</span>
+        <span style="font-size: 10px;color: gray;">评论 100 ·</span>
+        <span style="font-size: 10px;color: gray;">喜欢 100</span>
+        <hr style="height:1px;border:none;border-top:1px dashed #cccccc;">
     {% endfor %}
 
         <p>1</p>

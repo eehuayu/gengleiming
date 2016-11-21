@@ -20,6 +20,7 @@
 <body>
 <div class="container-fluid">
     <div class="row">
+
         {#        <div class="col-md-1 left1-side" style="background: url({% static 'gengleiming/img/intro-bg.jpg' %})">#}
         {#        </div>#}
         <div class="col-md-3 left-side">
@@ -57,7 +58,7 @@
                 {% endif %}
 
             </div>
-            <div class="text-center">
+            <div class="text-center" style="padding-bottom: 100px">
                 <br> <br>
                 <h4><strong><i class="glyphicon glyphicon-book"></i> 博客分类:</strong></h4>
                 <hr width="100px">
@@ -70,15 +71,11 @@
                 <a href=""><span class="label" style="color: gray;font-size: 14px"> <i
                         class="glyphicon glyphicon-list-alt"></i>代码之路</span></a><br>
             </div>
-            <div style="position: absolute; bottom: 30px">
-                <hr>
-                <div class="form-inline">
-                    <a class="btn btn-sm btn-warning" type="button" href="{% url 'home' %}">返回首页</a>
-                    <a class="btn btn-sm btn-warning" type="button" href="#">文章管理</a>
-                </div>
 
+            <div style="position: absolute; bottom: 10px">
+                <a class="btn btn-xs btn-warning" type="button" href="{% url 'home' %}">返回首页</a>
+                <a class="btn btn-xs btn-warning" type="button" href="#">文章管理</a>
             </div>
-
         </div>
 
         <div class="col-md-9 col-md-offset-3">
