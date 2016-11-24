@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -10,6 +10,9 @@ from allapps.cms.models import Content, Category, KeyWord
 class CodingListView(generic.ListView):
     template_name = "cms/coding/index.html"
     model = Content
+
+    def get_queryset(self):
+        return super(CodingListView, self).get_queryset().order_by("-create_time")
 
     def get_context_data(self, **kwargs):
         ctx = super(CodingListView, self).get_context_data(**kwargs)

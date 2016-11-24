@@ -24,6 +24,19 @@ body {
     width: 80px
 }
 
+.article-list {
+    font-size: 10px;
+    color: gray;
+}
+
+.article-list h4{
+    font-weight: bold;
+}
+
+.article-list h4 a{
+    color: #555555;
+}
+
 /*.article-group {*/
 /*border: 2px solid #ffffff;*/
 /*border-right: 1px solid gray;*/

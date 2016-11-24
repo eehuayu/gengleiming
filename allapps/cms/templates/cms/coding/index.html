@@ -96,14 +96,13 @@
     <br>
     <div class="form-horizontal"><button type="button" class="btn btn-warning">最新文章</button> <button type="button" class="btn btn-warning">最热文章</button></div>
     <hr>
-    <div>
+    <div class="article-list">
     {% for content in content_list %}
-        <span style="font-size: 10px; color: gray">大约3小时前</span>
-        <h4 style="font-weight: bold;"><a href="" style="color: #555555">{{ content.title }}</a></h4>
-{#        <p>{{ content.content|safe }}</p>#}
-        <span style="font-size: 10px;color: gray;">阅读 100 ·</span>
-        <span style="font-size: 10px;color: gray;">评论 100 ·</span>
-        <span style="font-size: 10px;color: gray;">喜欢 100</span>
+        <span >{{ content.time_desc }}</span>
+        <h4><a href="">{{ content.title }}</a></h4>
+        <span>阅读 100 ·</span>
+        <span>评论 100 ·</span>
+        <span>喜欢 100</span>
         <hr style="height:1px;border:none;border-top:1px dashed #cccccc;">
     {% endfor %}
 

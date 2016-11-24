@@ -44,6 +44,11 @@ class Content(Base):
     def __str__(self):
         return self.title
 
+    @property
+    def time_desc(self):
+        from .helper import get_time_desc
+        return get_time_desc(self.create_time)
+
     class Meta:
         verbose_name = verbose_name_plural = "内容"
         permissions = (("write", "写文章"), )
