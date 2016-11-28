@@ -9,7 +9,7 @@ def get_time_desc(date_time):
     months = now.month - date_time.month
     years = now.year - date_time.year
     if days < 1:
-        if 0 < seconds < 60:
+        if 0 <= seconds < 60:
             return "刚刚"
         if 60 <= seconds < 3600:
             return "{0}分钟之前".format(seconds // 60)

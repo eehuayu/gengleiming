@@ -50,6 +50,15 @@ class Article(Base):
         from .helper import get_time_desc
         return get_time_desc(self.create_time)
 
+    @property
+    def comment_count(self):
+        article = Article.objects.get(id=self.id)
+        article_comment_count = article.comments.count()
+        comment_comment_count = 0
+        for comment in article.comments.all():
+            comment_comment_count += Comment.objects.filter(reply=comment.id).count()
+        return article_comment_count + comment_comment_count
+
     class Meta:
         verbose_name = verbose_name_plural = "文章"
         permissions = (("write", "写文章"), )

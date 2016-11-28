@@ -29,13 +29,23 @@ body {
     color: gray;
 }
 
-.article-list h4{
+.article-list h3{
+    margin-top: 10px;
     font-weight: bold;
 }
 
-.article-list h4 a{
-    color: #555555;
+.article-list h3 a{
+    color: #dd4814;
 }
+
+.article-list h3 a:hover{
+    color: red;
+    text-decoration: none;
+}
+
+/*.article-list h4 a:hover{*/
+    /*color: red;*/
+/*}*/
 
 /*.article-group {*/
 /*border: 2px solid #ffffff;*/

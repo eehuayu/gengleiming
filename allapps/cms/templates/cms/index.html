@@ -94,17 +94,22 @@
         <span class="label label-default">标签</span>
     </div>
     <br>
-    <div class="form-horizontal"><button type="button" class="btn btn-warning">最新文章</button> <button type="button" class="btn btn-warning">最热文章</button></div>
+    <div class="form-horizontal">
+        <button type="button" class="btn btn-warning">最新文章</button>
+        <button type="button" class="btn btn-warning">最热文章</button>
+    </div>
     <hr>
     <div class="article-list">
-    {% for article in articles %}
-        <span >{{ article.time_desc }}</span>
-        <h4><a href="">{{ article.title }}</a></h4>
-        <span>阅读 100 ·</span>
-        <span>评论 100 ·</span>
-        <span>喜欢 100</span>
-        <hr style="height:1px;border:none;border-top:1px dashed #cccccc;">
-    {% endfor %}
+        {% for article in articles %}
+            <div>
+                <span>{{ article.time_desc }}</span>
+                <h3><a href="{% url 'cms:read' pk=article.id %}">{{ article.title }}</a></h3>
+                <span>阅读 {{ article.visit_count }} ·</span>
+                <span>评论 {{ article.comment_count }} ·</span>
+                <span>喜欢 {{ article.like }}</span>
+            </div>
+            <hr style="height:1px;border:none;border-top:1px dashed #cccccc;">
+        {% endfor %}
         <ul class="pagination">
             <li>
                 <a href="#">Prev</a>

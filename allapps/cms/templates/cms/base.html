@@ -17,7 +17,6 @@
                     <h3 class="text-center"><b> 耿耿爆破</b></h3>
 
                     <p class="text-muted text-center">Shut up and show me the code!</p>
-                    <p class="text-muted text-center">Shut up and show me the code!</p>
                 </div>
                 <br>
                 <table class="text-center stat-table">
@@ -28,8 +27,8 @@
                     </tr>
                     <tr>
                         <td>总浏览数</td>
-                        <td>总浏览数</td>
-                        <td>总浏览数</td>
+                        <td>总评论数</td>
+                        <td>总喜欢数</td>
                     </tr>
                 </table>
                 <br><br>
@@ -73,7 +72,7 @@
         <script>
             $(function () {
                 $('#write').click(function () {
-                    window.location.href = "{% url 'cms:coding-write' %}";
+                    window.location.href = "{% url 'cms:write' %}";
                 });
             });
         </script>

@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -7,16 +7,16 @@ from allapps.cms.forms import CmsForm
 from allapps.cms.models import Article, Category, KeyWord
 
 
-class CodingListView(generic.ListView):
+class ArticleListView(generic.ListView):
     """文章列表"""
-    template_name = "cms/coding/index.html"
+    template_name = "cms/index.html"
     model = Article
 
     def get_queryset(self):
-        return super(CodingListView, self).get_queryset().order_by("-create_time")
+        return super(ArticleListView, self).get_queryset().order_by("-create_time")
 
     def get_context_data(self, **kwargs):
-        ctx = super(CodingListView, self).get_context_data(**kwargs)
+        ctx = super(ArticleListView, self).get_context_data(**kwargs)
         if self.request.GET.get("index"):
             pass
         else:
@@ -24,16 +24,16 @@ class CodingListView(generic.ListView):
         return ctx
 
 
-class CodeCreateView(generic.CreateView, PermissionRequiredMixin):
+class ArticleCreateView(generic.CreateView, PermissionRequiredMixin):
     """创建文章"""
     permission_required = ("dormitory.write", )
-    template_name = "cms/coding/write.html"
+    template_name = "cms/write.html"
     model = Article
     form_class = CmsForm
     success_url = reverse_lazy("cms:index")
 
     def get_context_data(self, **kwargs):
-        ctx = super(CodeCreateView, self).get_context_data(**kwargs)
+        ctx = super(ArticleCreateView, self).get_context_data(**kwargs)
         ctx['categories'] = Category.objects.all()
         ctx['keywords'] = list(KeyWord.objects.exclude(word='').exclude(word=None).values_list("word", flat=True))
         return ctx
@@ -48,7 +48,7 @@ class CodeCreateView(generic.CreateView, PermissionRequiredMixin):
         f.user = self.request.user
         f.save()
         f.keyword = keywords
-        return super(CodeCreateView, self).form_valid(form)
+        return super(ArticleCreateView, self).form_valid(form)
 
 
 class CategoryCreateView(generic.View):
@@ -57,11 +57,15 @@ class CategoryCreateView(generic.View):
         name = request.POST.get("name").strip()
         description = request.POST.get("description")
         if not name:
-            return HttpResponse("类别不能为空。")
+            return JsonResponse({"message": "类别不能为空"})
         try:
             Category.objects.get(name=name)
-            return HttpResponse(name + "类别已存在。")
+            return JsonResponse({"message": name + "类别已存在"})
         except Category.DoesNotExist:
-            Category.objects.create(name=name, description=description)
-            return HttpResponse("增加成功。")
-        return HttpResponse("未知错误")
+            category = Category.objects.create(name=name, description=description)
+            return JsonResponse({"id": category.id, "name": category.name, "message": "添加成功"})
+
+
+class ReadDetailView(generic.DetailView):
+    template_name = "cms/detail.html"
+    model = Article

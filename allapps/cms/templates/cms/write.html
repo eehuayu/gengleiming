@@ -7,7 +7,7 @@
 
 {% block right_content %}
     <br>
-    <form class="form-horizontal" role="form" action="{% url 'cms:coding-write' %}" method="post">
+    <form class="form-horizontal" role="form" action="{% url 'cms:write' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
             <div class="input-group">
@@ -139,16 +139,21 @@
             var category_name = $("#category_name").val();
             var category_description = $("#category_description").val();
             $.ajax({
-                "type": "POST",
-                "url": "{% url 'cms:category-create' %}",
-                "data": {
+                type: "POST",
+                url: "{% url 'cms:category-create' %}",
+                data: {
                     "name": category_name,
                     "description": category_description,
                     "csrfmiddlewaretoken": $.cookie('csrftoken'),
                 },
-                "success": function (response) {
+                success: function (response) {
                     $('#create_category').modal("hide");
-                    $.confirm({"title": "提示", "message": response});
+                    $.confirm({"title": "提示", "message": response.message}, function(){
+                        if(response.message == "添加成功"){
+                            $('#id_category').append('<option value="' + response.id + '" selected>' + response.name + '</option>');
+                        }
+                    });
+
                 }
             });
         });
