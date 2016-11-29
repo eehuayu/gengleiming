@@ -1,6 +1,7 @@
 import datetime
 from django.utils.timezone import utc
 
+
 def get_time_desc(date_time):
     now = datetime.datetime.utcnow().replace(tzinfo=utc)
     seconds = (now - date_time).seconds

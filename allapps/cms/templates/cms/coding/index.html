@@ -97,33 +97,14 @@
     <div class="form-horizontal"><button type="button" class="btn btn-warning">最新文章</button> <button type="button" class="btn btn-warning">最热文章</button></div>
     <hr>
     <div class="article-list">
-    {% for content in content_list %}
-        <span >{{ content.time_desc }}</span>
-        <h4><a href="">{{ content.title }}</a></h4>
+    {% for article in articles %}
+        <span >{{ article.time_desc }}</span>
+        <h4><a href="">{{ article.title }}</a></h4>
         <span>阅读 100 ·</span>
         <span>评论 100 ·</span>
         <span>喜欢 100</span>
         <hr style="height:1px;border:none;border-top:1px dashed #cccccc;">
     {% endfor %}
-
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-
-
         <ul class="pagination">
             <li>
                 <a href="#">Prev</a>

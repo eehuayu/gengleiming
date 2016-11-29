@@ -4,12 +4,13 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from allapps.cms.forms import CmsForm
-from allapps.cms.models import Content, Category, KeyWord
+from allapps.cms.models import Article, Category, KeyWord
 
 
 class CodingListView(generic.ListView):
+    """文章列表"""
     template_name = "cms/coding/index.html"
-    model = Content
+    model = Article
 
     def get_queryset(self):
         return super(CodingListView, self).get_queryset().order_by("-create_time")
@@ -19,14 +20,15 @@ class CodingListView(generic.ListView):
         if self.request.GET.get("index"):
             pass
         else:
-            ctx["contents"] = self.object_list[:10] if len(self.object_list) > 10 else self.object_list
+            ctx["articles"] = self.object_list[:10] if len(self.object_list) > 10 else self.object_list
         return ctx
 
 
 class CodeCreateView(generic.CreateView, PermissionRequiredMixin):
+    """创建文章"""
     permission_required = ("dormitory.write", )
     template_name = "cms/coding/write.html"
-    model = Content
+    model = Article
     form_class = CmsForm
     success_url = reverse_lazy("cms:index")
 
@@ -50,6 +52,7 @@ class CodeCreateView(generic.CreateView, PermissionRequiredMixin):
 
 
 class CategoryCreateView(generic.View):
+    """创建分类"""
     def post(self, request):
         name = request.POST.get("name").strip()
         description = request.POST.get("description")
