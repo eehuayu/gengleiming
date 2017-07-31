@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>一切从这里开始</h1>
+                        <h3>欢迎来到我的个人网站，猿粪哪！{{ ip }}</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg">
+                                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                                    <span class="network-name">留言板</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span class="network-name">联系我</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg">
+                                    <i class="fa fa-clipboard" aria-hidden="true"></i>
+                                    <span class="network-name">提建议</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a name="code"></a>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6 block-message">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">CODING<br>装逼指南</h2>
+                    <p class="lead">
+                        爱编程 不爱Bug<br>
+                        爱生活 不爱黑眼圈<br>
+                        代码改变世界 思维创造时代<br>
+                        我不是凡客 我是Geek<br>
+                    <hr>
+                    <a href="#"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 代码世界</a>
+                    </p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="{% static 'gengleiming/img/ipad.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a name="life"></a>
+    <div class="content-section-b">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6 block-message">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">LIFE<br>执剑少年</h2>
+                    <p class="lead">
+                        想成为一个很厉害很厉害的人<br>
+                        热血，激情和荣耀<br>
+                        想成为说走就走的浪子<br>
+                        胡须，背包和相机<br>
+                        也希望有个安心的居所<br>
+                        温馨，放松，她<br>
+                    <hr>
+                    <a href="#"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 这是我的生活</a>
+                    </p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="{% static 'gengleiming/img/dog.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a name="interest"></a>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6 block-message">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">INTERESTING<br>天地无极</h2>
+                    <p class="lead">
+                        兴趣是有魔力的，<br>
+                        它让无聊的岁月变得丰满。<br>
+                        代码，健身，电影... <br>
+                        很幸运，<br>
+                        一人一世界。<br>
+                    <hr>
+                    <a href="#"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 玩物不丧志</a>
+                    </p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="{% static 'gengleiming/img/phones.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a name="about"></a>
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-lg-offset-3 block-message">
+                    <h2>About</h2>
+                </div>
+                <div class="col-lg-6 block-message">
+                    <p>
+                        不知道从什么时候开始，<br>
+                        觉得一切都乱糟糟的，<br>
+                        难寻一片安心之地。<br>
+                        遂打算自己动手做一个网站，<br>
+                        以此来记录自己的工作和生活。<br>
+                        同时希望能持之以恒的对这个网站进行更新和维护。<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-lg-12">
+            <p class="copyright text-muted small text-center">Copyright &copy; @2016. <a
+                    href="http://www.miitbeian.gov.cn/" style="color: #777">粤ICP备16104888号</a></p>
+            <br>
+        </div>
+    </div>
+{% endblock %}

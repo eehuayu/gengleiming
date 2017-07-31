@@ -1,27 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="shortcut icon" href="{% static 'gengleiming/img/favico.ico' %}"/>
-    {% block styles %}
-        <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    {% endblock %}
-    <script src="{% static 'jquery/jquery.js' %}"></script>
-</head>
+		<title>Editorial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        {% block styles %}{% endblock %}
+	</head>
 <body>
 
 {% block body %}{% endblock %}
 
-{% block scripts %}
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-{% endblock %}
+<script src="{% static 'jquery/jquery-1.10.2.min.js' %}"></script>
+
+{% block scripts %}{% endblock %}
 
 </body>
 </html>
