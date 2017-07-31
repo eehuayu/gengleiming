@@ -130,4 +130,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = location('gengleiming/static')
+STATIC_ROOT = location('static')
