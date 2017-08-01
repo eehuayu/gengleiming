@@ -1,11 +1,10 @@
-{% extends 'cms/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block styles %}
     {{ block.super }}
-    <link rel="stylesheet" type="text/css" href="{% static 'wangEdit/css/wangEditor.min.css' %}">
 {% endblock %}
 
-{% block right_content %}
+{% block main %}
     <br>
     <form class="form-horizontal" role="form" action="{% url 'cms:write' %}" method="post">
         {% csrf_token %}
@@ -44,9 +43,10 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-                <textarea class="form-control" style="height: 1000px" id="id_content" name="content" required>
-                </textarea>
+        <div class="content_div">
+            <p>请开始你的表演</p>
+{#                <textarea class="form-control" style="height: 1000px" id="id_content" name="content" required>#}
+{#                </textarea>#}
         </div>
 {#        <div class="form-group">#}
 {#            <button type="submit" class="btn btn-primary form-control">提交</button>#}
@@ -110,52 +110,63 @@
 {% block scripts %}
     {{ block.super }}
     <script type="text/javascript" src="{% static 'wangEdit/js/wangEditor.min.js' %}"></script>
-
     <script type="text/javascript">
-        var editor = new wangEditor('id_content');
-        editor.config.menuFixed = false;
-        editor.config.codeDefaultLang = 'python';
-        wangEditor.config.printLog = false;
-        editor.config.menus = $.map(wangEditor.config.menus, function(item, key) {
-            if (item === 'location' || item === "video" || item === "img") {
-                return null;
-            }
-            return item;
-        });
+        var editor = new window.wangEditor('.content_div');
+        // 自定义菜单配置
+        editor.customConfig.menus = [
+            'head',  // 标题
+            'bold',  // 粗体
+            'italic',  // 斜体
+            'underline',  // 下划线
+            'strikeThrough',  // 删除线
+            'foreColor',  // 文字颜色
+            'backColor',  // 背景颜色
+            'link',  // 插入链接
+            'list',  // 列表
+            'justify',  // 对齐方式
+            'quote',  // 引用
+            'emoticon',  // 表情
+            'image',  // 插入图片
+            'table',  // 表格
+{#            'video',  // 插入视频#}
+            'code',  // 插入代码
+            'undo',  // 撤销
+            'redo'  // 重复
+        ];
         editor.create();
 
-        $("#add_keywords_tolist").click(function () {
-            var str = $("#id_keyword_add").val() == '' ? '' : ',';
-            $("#keyword_list .modal-body input:checked").each(function () {
-                str = str + $(this).val() + ','
-            });
-            str = str.slice(0, -1);
-            $("#id_keyword_add").val($("#id_keyword_add").val() + str);
-            $("#keyword_list").modal('hide');
-            $("#keyword_list .modal-body input").prop("checked", false);
-        });
-
-        $('#category_add').click(function () {
-            var category_name = $("#category_name").val();
-            var category_description = $("#category_description").val();
-            $.ajax({
-                type: "POST",
-                url: "{% url 'cms:category-create' %}",
-                data: {
-                    "name": category_name,
-                    "description": category_description,
-                    "csrfmiddlewaretoken": $.cookie('csrftoken'),
-                },
-                success: function (response) {
-                    $('#create_category').modal("hide");
-                    $.confirm({"title": "提示", "message": response.message}, function(){
-                        if(response.message == "添加成功"){
-                            $('#id_category').append('<option value="' + response.id + '" selected>' + response.name + '</option>');
-                        }
-                    });
-
-                }
-            });
-        });
+{#        $("#add_keywords_tolist").click(function () {#}
+{#            var str = $("#id_keyword_add").val() == '' ? '' : ',';#}
+{#            $("#keyword_list .modal-body input:checked").each(function () {#}
+{#                str = str + $(this).val() + ','#}
+{#            });#}
+{#            str = str.slice(0, -1);#}
+{#            $("#id_keyword_add").val($("#id_keyword_add").val() + str);#}
+{#            $("#keyword_list").modal('hide');#}
+{#            $("#keyword_list .modal-body input").prop("checked", false);#}
+{#        });#}
+{##}
+{#        $('#category_add').click(function () {#}
+{#            var category_name = $("#category_name").val();#}
+{#            var category_description = $("#category_description").val();#}
+{#            $.ajax({#}
+{#                type: "POST",#}
+{#                url: "{% url 'cms:category-create' %}",#}
+{#                data: {#}
+{#                    "name": category_name,#}
+{#                    "description": category_description,#}
+{#                    "csrfmiddlewaretoken": $.cookie('csrftoken'),#}
+{#                },#}
+{#                success: function (response) {#}
+{#                    $('#create_category').modal("hide");#}
+{#                    $.confirm({"title": "提示", "message": response.message}, function(){#}
+{#                        if(response.message == "添加成功"){#}
+{#                            $('#id_category').append('<option value="' + response.id + '" selected>' + response.name + '</option>');#}
+{#                        }#}
+{#                    });#}
+{##}
+{#                }#}
+{#            });#}
+{#        });#}
     </script>
 {% endblock %}

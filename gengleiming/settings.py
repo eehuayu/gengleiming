@@ -30,7 +30,7 @@ SECRET_KEY = '*w2g1&jdag=y0%-0xdcv@kzai)t2=04)p=x3f#8^fb%po$mf!f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.fumingbanshen.com']
+ALLOWED_HOSTS = ['www.fumingbanshen.com', '127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/'
 

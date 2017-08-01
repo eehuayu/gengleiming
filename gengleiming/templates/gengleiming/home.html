@@ -1,59 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-{% block scripts %}
-    <!-- Scripts -->
-    <script src="{% static 'assets/js/skel.min.js' %}"></script>
-    <script src="{% static 'assets/js/util.js' %}"></script>
-    <!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
-    <script src="{% static 'assets/js/main.js' %}"></script>
-{% endblock %}
-
-<!------------------------------------------------------- slide bar --------------------------------------------------->
-{% block sidebar_menu %}
-    <header class="major">
-        <h2>分类</h2>
-    </header>
-    <ul>
-        <li><a href="#">Python</a></li>
-        <li><a href="#">Mysql</a></li>
-        <li><a href="#">Linux</a></li>
-        {#        <li>#}
-        {#            <span class="opener">Submenu</span>#}
-        {#            <ul>#}
-        {#                <li><a href="#">Lorem Dolor</a></li>#}
-        {#                <li><a href="#">Ipsum Adipiscing</a></li>#}
-        {#                <li><a href="#">Tempus Magna</a></li>#}
-        {#                <li><a href="#">Feugiat Veroeros</a></li>#}
-        {#            </ul>#}
-        {#        </li>#}
-        <li><a href="#">Django</a></li>
-        <li><a href="#">HTML/CSS/JS/BOOTSTRAP</a></li>
-        {#        <li>#}
-        {#            <span class="opener">Another Submenu</span>#}
-        {#            <ul>#}
-        {#                <li><a href="#">Lorem Dolor</a></li>#}
-        {#                <li><a href="#">Ipsum Adipiscing</a></li>#}
-        {#                <li><a href="#">Tempus Magna</a></li>#}
-        {#                <li><a href="#">Feugiat Veroeros</a></li>#}
-        {#            </ul>#}
-        {#        </li>#}
-        <li><a href="#">Git</a></li>
-        <li><a href="#">Other</a></li>
-    </ul>
-{% endblock %}
-
 <!------------------------------------- content ----------------------------------------->
 {% block main_header %}
-    <span class="logo"><strong>Raymon </strong> - 为了改变世界</span>
-{#    <ul class="icons">#}
-{#        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>#}
-{#        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>#}
-{#        <li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>#}
-{#        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>#}
-{#        <li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>#}
-{#    </ul>#}
+    <header id="header">
+        <span class="logo"><strong>Raymon </strong> - 为了改变世界</span>
+    </header>
+    {#    <ul class="icons">#}
+    {#        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>#}
+    {#        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>#}
+    {#        <li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>#}
+    {#        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>#}
+    {#        <li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>#}
+    {#    </ul>#}
 {% endblock %}
 
 {% block main_banner %}

@@ -6,6 +6,15 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
 {% endblock %}
+
+{% block scripts %}
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/skel.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+{% endblock %}
+
 {% block body %}
     <!-- Wrapper -->
     <div id="wrapper">
@@ -14,101 +23,35 @@
         <div id="main">
             <div class="inner">
                 <!-- Header -->
-                <header id="header">
-                    {% block main_header %}
-                    {% endblock %}
-                </header>
+                {% block main_header %}
+                    <header id="header">
+                    </header>
+                {% endblock %}
 
-                <!-- Banner -->
-                <section id="banner">
-                    {% block main_banner %}
-                    {% endblock %}
-                </section>
+                {% block main %}
+                    <!-- Banner -->
+                    <section id="banner">
+                        {% block main_banner %}
+                        {% endblock %}
+                    </section>
 
-                <!-- Section -->
-                <section>
-                    {% block main_stick %}
-                    {% endblock %}
-                </section>
+                    <!-- Section -->
+                    <section>
+                        {% block main_stick %}
+                        {% endblock %}
+                    </section>
 
-                <!-- Section -->
-                <section>
-                    {% block main_content %}
-                    {% endblock %}
-                </section>
+                    <!-- Section -->
+                    <section>
+                        {% block main_content %}
+                        {% endblock %}
+                    </section>
+                {% endblock %}
             </div>
         </div>
 
         <!-- Sidebar -->
-        <div id="sidebar">
-            <div class="inner">
-                <!-- Search -->
-                <section id="search" class="alt">
-                    <form method="post" action="#">
-                        <input type="text" name="query" id="query" placeholder="Search"/>
-                    </form>
-                </section>
-
-                <!-- Menu -->
-                <nav id="menu">
-                    {% block sidebar_menu %}
-                    {% endblock %}
-                </nav>
-
-{#                <!-- Section -->#}
-{#                <section>#}
-{#                    {% block sidebar_section1 %}#}
-{#                        <header class="major">#}
-{#                            <h2>Ante interdum</h2>#}
-{#                        </header>#}
-{#                        <div class="mini-posts">#}
-{#                            <article>#}
-{#                                <a href="#" class="image"><img src="{% static 'images/pic07.jpg' %}" alt=""/></a>#}
-{#                                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>#}
-{#                            </article>#}
-{#                            <article>#}
-{#                                <a href="#" class="image"><img src="{% static 'images/pic08.jpg' %}" alt=""/></a>#}
-{#                                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>#}
-{#                            </article>#}
-{#                            <article>#}
-{#                                <a href="#" class="image"><img src="{% static 'images/pic09.jpg' %}" alt=""/></a>#}
-{#                                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>#}
-{#                            </article>#}
-{#                        </div>#}
-{#                        <ul class="actions">#}
-{#                            <li><a href="#" class="button">More</a></li>#}
-{#                        </ul>#}
-{#                    {% endblock %}#}
-{##}
-{#                </section>#}
-
-                <!-- Section -->
-                <section>
-                    {% block slidebar_section2 %}
-                        <header class="major">
-                            <h2>联系我</h2>
-                        </header>
-                        <p>交个朋友？技术交流？联系方式在下面，来吧，勇敢的迈出第一步，我就是你的大朋友！</p>
-                        <ul class="contact">
-                            <li class="fa-envelope-o">244277947@qq.com</li>
-                            <li class="fa-phone">(000) 000-0000</li>
-                            <li class="fa-home">1234 Somewhere Road #8254<br/>
-                                Nashville, TN 00000-0000
-                            </li>
-                        </ul>
-                    {% endblock %}
-
-                </section>
-
-                <!-- Footer -->
-                <footer id="footer">
-                    <p class="copyright">&copy; xxxxxxxxxxxxxx xxxxxx xxxxxx xxxxx cccccc
-                        <a href="#">xxxxxxxxxxxxxxxx xxxxxxxx</a>.
-                    </p>
-                </footer>
-
-            </div>
-        </div>
+        {% include 'sidebar.html' %}
 
     </div>
 {% endblock %}
