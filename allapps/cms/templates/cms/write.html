@@ -6,48 +6,29 @@
     <form class="form-horizontal" role="form" action="{% url 'cms:write' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="文章标题" id="id_title" name="title">
-                <span class="input-group-btn">
-                    <button class="btn btn-danger" type="submit"><i class="glyphicon glyphicon-share-alt"></i> 发布文章</button>
-                </span>
-            </div>
+                <div class="col-md-10">
+                    <input type="text" class="input-main-css" placeholder="文章标题" id="id_title" name="title">
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="button-main-css" style="width: 100%">发布文章</button>
+                </div>
         </div>
         <div class="form-group">
             <div class="col-md-6">
-                <div class="input-group">
-                    <select name="category" id="id_category" class="form-control" required>
-                        {% for category in categories %}
-                            <option value="{{ category.id }}">{{ category.name }}</option>
-                        {% endfor %}
-                    </select>
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" title="增加分类" data-toggle="modal"
-                                data-target="#create_category"><span
-                                class="glyphicon glyphicon-plus"></span></button>
-                    </span>
-                </div>
+                <select name="category" id="id_category" class="select-main-css" required>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="col-md-6">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="id_keyword_add" name="keyword_add"
-                           placeholder="请加入关键字，以逗号分隔，最多不超过十个">
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#keyword_list">
-                            选择已有关键字
-                        </button>
-                    </div>
-                </div>
+                <input type="text" class="input-main-css" id="id_keyword_add" name="keyword_add"
+                       placeholder="请加入关键字，以逗号分隔，最多不超过十个">
             </div>
         </div>
         <div class="content_div">
             <p>请开始你的表演</p>
-{#                <textarea class="form-control" style="height: 1000px" id="id_content" name="content" required>#}
-{#                </textarea>#}
         </div>
-{#        <div class="form-group">#}
-{#            <button type="submit" class="btn btn-primary form-control">提交</button>#}
-{#        </div>#}
     </form>
 
     <!-- model -->
@@ -109,6 +90,11 @@
     <script type="text/javascript" src="{% static 'wangEdit/js/wangEditor.min.js' %}"></script>
 
     <script type="text/javascript">
+        $(function () {
+            $(".w-e-text-container").css({
+                "height": "600px"
+            });
+        });
         var editor = new window.wangEditor('.content_div');
         // 自定义菜单配置
         editor.customConfig.menus = [
@@ -126,11 +112,12 @@
             'emoticon',  // 表情
             'image',  // 插入图片
             'table',  // 表格
-{#            'video',  // 插入视频#}
+            {#            'video',  // 插入视频#}
             'code',  // 插入代码
             'undo',  // 撤销
             'redo'  // 重复
         ];
+        editor.customConfig.zIndex = 1000;
         editor.create();
 
 {#        $("#add_keywords_tolist").click(function () {#}
@@ -157,8 +144,8 @@
 {#                },#}
 {#                success: function (response) {#}
 {#                    $('#create_category').modal("hide");#}
-{#                    $.confirm({"title": "提示", "message": response.message}, function(){#}
-{#                        if(response.message == "添加成功"){#}
+{#                    $.confirm({"title": "提示", "message": response.message}, function () {#}
+{#                        if (response.message == "添加成功") {#}
 {#                            $('#id_category').append('<option value="' + response.id + '" selected>' + response.name + '</option>');#}
 {#                        }#}
 {#                    });#}
