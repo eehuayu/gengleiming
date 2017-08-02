@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block styles %}
-    {{ block.super }}
-{% endblock %}
 
 {% block main %}
     <br>
@@ -110,6 +107,7 @@
 {% block scripts %}
     {{ block.super }}
     <script type="text/javascript" src="{% static 'wangEdit/js/wangEditor.min.js' %}"></script>
+
     <script type="text/javascript">
         var editor = new window.wangEditor('.content_div');
         // 自定义菜单配置

@@ -83,15 +83,12 @@
 					});
 
 		// Sidebar.
-			var $sidebar = $('#sidebar'),
-				$sidebar_inner = $sidebar.children('.inner');
+			var $sidebar = $('#sidebar'), $sidebar_inner = $sidebar.children('.inner');
 
 			// Inactive by default on <= large.
-				skel
-					.on('+large', function() {
+			skel.on('+large', function() {
 						$sidebar.addClass('inactive');
-					})
-					.on('-large !large', function() {
+					}).on('-large !large', function() {
 						$sidebar.removeClass('inactive');
 					});
 
@@ -104,7 +101,7 @@
 			// Toggle.
 				if (skel.vars.IEVersion > 9) {
 
-					$('<a href="#sidebar" class="toggle">Toggle</a>')
+					$('<a href="#sidebar" class="toggle-main-css a-main-css quanping">Toggle</a>')
 						.appendTo($sidebar)
 						.on('click', function(event) {
 

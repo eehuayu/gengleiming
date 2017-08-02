@@ -1,6 +1,8 @@
 {% extends "root.html" %}
 {% load static %}
 {% block styles %}
+    <!-- bootstrap样式放在最上面，以便于main.css重写样式 -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}"/>
     <!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
@@ -8,6 +10,7 @@
 {% endblock %}
 
 {% block scripts %}
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <!-- Scripts -->
     <script src="{% static 'assets/js/skel.min.js' %}"></script>
     <script src="{% static 'assets/js/util.js' %}"></script>

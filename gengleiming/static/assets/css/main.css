@@ -9,7 +9,7 @@
 
 /* Reset */
 
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, .a-main-css, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
 		border: 0;
@@ -1304,7 +1304,7 @@
 
 /* Type */
 
-	body, input, select, textarea {
+	body, .input-main-css, .select-main-css, .textarea-main-css {
 		color: #7f888f;
 		font-family: "Open Sans", sans-serif;
 		font-size: 13pt;
@@ -1314,7 +1314,7 @@
 
 		@media screen and (max-width: 1680px) {
 
-			body, input, select, textarea {
+			body, .input-main-css, .select-main-css, .textarea-main-css {
 				font-size: 11pt;
 			}
 
@@ -1322,7 +1322,7 @@
 
 		@media screen and (max-width: 1280px) {
 
-			body, input, select, textarea {
+			body, .input-main-css, .select-main-css, .textarea-main-css {
 				font-size: 10pt;
 			}
 
@@ -1330,28 +1330,28 @@
 
 		@media screen and (max-width: 360px) {
 
-			body, input, select, textarea {
+			body, .input-main-css, .select-main-css, .textarea-main-css {
 				font-size: 9pt;
 			}
 
 		}
 
-	a {
+	.a-main-css {
 		-moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-		/*border-bottom: dotted 1px;*/
+		border-bottom: dotted 1px;
 		color: #f56a6a;
 		text-decoration: none;
 	}
 
-		a:hover {
-			border-bottom-color: #f56a6a;
+		.a-main-css:hover {
+			border-bottom-color: #f56a6a !important;
 			color: #f56a6a !important;
 		}
 
-			a:hover strong {
+			.a-main-css:hover strong {
 				color: inherit;
 			}
 
@@ -1376,7 +1376,7 @@
 		margin: 0 0 1em 0;
 	}
 
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		h1 .a-main-css, h2 .a-main-css, h3 .a-main-css, h4 .a-main-css, h5 .a-main-css, h6 .a-main-css {
 			color: inherit;
 			text-decoration: none;
 		}
@@ -1541,14 +1541,15 @@
 		margin: 0 0 1em 0;
 	}
 
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	input[type="tel"],
-	input[type="search"],
-	input[type="url"],
-	select,
-	textarea {
+	/*input[type="text"],*/
+	/*input[type="password"],*/
+	/*input[type="email"],*/
+	/*input[type="tel"],*/
+	/*input[type="search"],*/
+	/*input[type="url"],*/
+	.input-main-css,
+	.select-main-css,
+	.textarea-main-css {
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
@@ -1565,25 +1566,27 @@
 		width: 100%;
 	}
 
-		input[type="text"]:invalid,
-		input[type="password"]:invalid,
-		input[type="email"]:invalid,
-		input[type="tel"]:invalid,
-		input[type="search"]:invalid,
-		input[type="url"]:invalid,
-		select:invalid,
-		textarea:invalid {
+		/*input[type="text"]:invalid,*/
+		/*input[type="password"]:invalid,*/
+		/*input[type="email"]:invalid,*/
+		/*input[type="tel"]:invalid,*/
+		/*input[type="search"]:invalid,*/
+		/*input[type="url"]:invalid,*/
+		.input-main-css:invalid,
+		.select-main-css:invalid,
+		.textarea-main-css:invalid {
 			box-shadow: none;
 		}
 
-		input[type="text"]:focus,
-		input[type="password"]:focus,
-		input[type="email"]:focus,
-		input[type="tel"]:focus,
-		input[type="search"]:focus,
-		input[type="url"]:focus,
-		select:focus,
-		textarea:focus {
+		/*input[type="text"]:focus,*/
+		/*input[type="password"]:focus,*/
+		/*input[type="email"]:focus,*/
+		/*input[type="tel"]:focus,*/
+		/*input[type="search"]:focus,*/
+		/*input[type="url"]:focus,*/
+		.input-main-css:focus,
+		.select-main-css:focus,
+		.textarea-main-css:focus {
 			border-color: #f56a6a;
 			box-shadow: 0 0 0 1px #f56a6a;
 		}
@@ -1617,21 +1620,22 @@
 			width: 2.75em;
 		}
 
-		.select-wrapper select::-ms-expand {
+		.select-wrapper .select-main-css::-ms-expand {
 			display: none;
 		}
 
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	input[type="tel"],
-	input[type="search"],
-	input[type="url"],
-	select {
+	/*input[type="text"],*/
+	/*input[type="password"],*/
+	/*input[type="email"],*/
+	/*input[type="tel"],*/
+	/*input[type="search"],*/
+	/*input[type="url"],*/
+	.input-main-css,
+	.select-main-css {
 		height: 2.75em;
 	}
 
-	textarea {
+	.textarea-main-css {
 		padding: 0.75em 1em;
 	}
 
@@ -1831,18 +1835,18 @@
 				width: 100%;
 			}
 
-	a.image {
+	.a-main-css.image {
 		overflow: hidden;
 	}
 
-		a.image img {
+		.a-main-css.image img {
 			-moz-transition: -moz-transform 0.2s ease;
 			-webkit-transition: -webkit-transform 0.2s ease;
 			-ms-transition: -ms-transform 0.2s ease;
 			transition: transform 0.2s ease;
 		}
 
-		a.image:hover img {
+		.a-main-css.image:hover img {
 			-moz-transform: scale(1.075);
 			-webkit-transform: scale(1.075);
 			-ms-transform: scale(1.075);
@@ -1954,7 +1958,7 @@
 						top: 0;
 					}
 
-				ul.contact li a {
+				ul.contact li .a-main-css {
 					color: inherit;
 				}
 
@@ -2172,11 +2176,11 @@
 
 /* Button */
 
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button,
-	.button {
+	/*input[type="submit"],*/
+	/*input[type="reset"],*/
+	/*input[type="button"],*/
+	/*button,*/
+	.button-main-css {
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
@@ -2205,93 +2209,93 @@
 		white-space: nowrap;
 	}
 
-		input[type="submit"]:hover,
-		input[type="reset"]:hover,
-		input[type="button"]:hover,
-		button:hover,
-		.button:hover {
+		/*input[type="submit"]:hover,*/
+		/*input[type="reset"]:hover,*/
+		/*input[type="button"]:hover,*/
+		/*button:hover,*/
+		.button-main-css:hover {
 			background-color: rgba(245, 106, 106, 0.05);
 		}
 
-		input[type="submit"]:active,
-		input[type="reset"]:active,
-		input[type="button"]:active,
-		button:active,
-		.button:active {
+		/*input[type="submit"]:active,*/
+		/*input[type="reset"]:active,*/
+		/*input[type="button"]:active,*/
+		/*button:active,*/
+		.button-main-css:active {
 			background-color: rgba(245, 106, 106, 0.15);
 		}
 
-		input[type="submit"].icon:before,
-		input[type="reset"].icon:before,
-		input[type="button"].icon:before,
-		button.icon:before,
-		.button.icon:before {
+		/*input[type="submit"].icon:before,*/
+		/*input[type="reset"].icon:before,*/
+		/*input[type="button"].icon:before,*/
+		/*button.icon:before,*/
+		.button-main-css.icon:before {
 			margin-right: 0.5em;
 		}
 
-		input[type="submit"].fit,
-		input[type="reset"].fit,
-		input[type="button"].fit,
-		button.fit,
-		.button.fit {
+		/*input[type="submit"].fit,*/
+		/*input[type="reset"].fit,*/
+		/*input[type="button"].fit,*/
+		/*button.fit,*/
+		.button-main-css.fit {
 			display: block;
 			margin: 0 0 1em 0;
 			width: 100%;
 		}
 
-		input[type="submit"].small,
-		input[type="reset"].small,
-		input[type="button"].small,
-		button.small,
-		.button.small {
+		/*input[type="submit"].small,*/
+		/*input[type="reset"].small,*/
+		/*input[type="button"].small,*/
+		/*button.small,*/
+		.button-main-css.small {
 			font-size: 0.6em;
 		}
 
-		input[type="submit"].big,
-		input[type="reset"].big,
-		input[type="button"].big,
-		button.big,
-		.button.big {
+		/*input[type="submit"].big,*/
+		/*input[type="reset"].big,*/
+		/*input[type="button"].big,*/
+		/*button.big,*/
+		.button-main-css.big {
 			font-size: 1em;
 			height: 3.65em;
 			line-height: 3.65em;
 		}
 
-		input[type="submit"].special,
-		input[type="reset"].special,
-		input[type="button"].special,
-		button.special,
-		.button.special {
+		/*input[type="submit"].special,*/
+		/*input[type="reset"].special,*/
+		/*input[type="button"].special,*/
+		/*button.special,*/
+		.button-main-css.special {
 			background-color: #f56a6a;
 			box-shadow: none;
 			color: #ffffff !important;
 		}
 
-			input[type="submit"].special:hover,
-			input[type="reset"].special:hover,
-			input[type="button"].special:hover,
-			button.special:hover,
-			.button.special:hover {
+			/*input[type="submit"].special:hover,*/
+			/*input[type="reset"].special:hover,*/
+			/*input[type="button"].special:hover,*/
+			/*button.special:hover,*/
+			.button-main-css.special:hover {
 				background-color: #f67878;
 			}
 
-			input[type="submit"].special:active,
-			input[type="reset"].special:active,
-			input[type="button"].special:active,
-			button.special:active,
-			.button.special:active {
+			/*input[type="submit"].special:active,*/
+			/*input[type="reset"].special:active,*/
+			/*input[type="button"].special:active,*/
+			/*button.special:active,*/
+			.button-main-css.special:active {
 				background-color: #f45c5c;
 			}
 
-		input[type="submit"].disabled, input[type="submit"]:disabled,
-		input[type="reset"].disabled,
-		input[type="reset"]:disabled,
-		input[type="button"].disabled,
-		input[type="button"]:disabled,
-		button.disabled,
-		button:disabled,
-		.button.disabled,
-		.button:disabled {
+		/*input[type="submit"].disabled, input[type="submit"]:disabled,*/
+		/*input[type="reset"].disabled,*/
+		/*input[type="reset"]:disabled,*/
+		/*input[type="button"].disabled,*/
+		/*input[type="button"]:disabled,*/
+		/*button.disabled,*/
+		/*button:disabled,*/
+		/*.button.disabled,*/
+		.button-main-css.disabled:disabled {
 			-moz-pointer-events: none;
 			-webkit-pointer-events: none;
 			-ms-pointer-events: none;
@@ -2788,7 +2792,7 @@
 			width: 2em;
 		}
 
-		#search form input[type="text"] {
+		#search form .input-main-css[type="text"] {
 			padding-right: 2.75em;
 		}
 
@@ -2845,7 +2849,7 @@
 				width: calc(100% + 4.44444em);
 			}
 
-		#sidebar .toggle {
+		#sidebar .toggle-main-css {
 			text-decoration: none;
 			-moz-transition: left 0.5s ease;
 			-webkit-transition: left 0.5s ease;
@@ -2867,7 +2871,11 @@
 			z-index: 10000;
 		}
 
-			#sidebar .toggle:before {
+		#sidebar .quanping {
+			color: #f56a6a !important;
+		}
+
+			#sidebar .toggle-main-css:before {
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
 				font-family: FontAwesome;
@@ -2876,7 +2884,7 @@
 				text-transform: none !important;
 			}
 
-			#sidebar .toggle:before {
+			#sidebar .toggle-main-css:before {
 				content: '\f0c9';
 				font-size: 2rem;
 				height: inherit;
@@ -2909,7 +2917,7 @@
 						width: calc(100% + 3.33333em);
 					}
 
-				#sidebar .toggle {
+				#sidebar .toggle-main-css {
 					height: 6.25em;
 					left: 24em;
 					line-height: 6.25em;
@@ -2917,7 +2925,7 @@
 					width: 5em;
 				}
 
-					#sidebar .toggle:before {
+					#sidebar .toggle-main-css:before {
 						font-size: 1.5rem;
 					}
 
@@ -2959,12 +2967,12 @@
 						width: 100%;
 					}
 
-				#sidebar .toggle {
+				#sidebar .toggle-main-css {
 					text-indent: 6em;
 					width: 6em;
 				}
 
-					#sidebar .toggle:before {
+					#sidebar .toggle-main-css:before {
 						font-size: 1.5rem;
 						margin-left: -0.4375em;
 					}
@@ -2977,12 +2985,12 @@
 
 		@media screen and (max-width: 736px) {
 
-			#sidebar .toggle {
+			#sidebar .toggle-main-css {
 				text-indent: 7.25em;
 				width: 7.25em;
 			}
 
-				#sidebar .toggle:before {
+				#sidebar .toggle-main-css:before {
 					color: #7f888f;
 					margin-left: -0.0625em;
 					margin-top: -0.25em;
@@ -2990,7 +2998,7 @@
 					z-index: 1;
 				}
 
-				#sidebar .toggle:after {
+				#sidebar .toggle-main-css:after {
 					background: rgba(222, 225, 226, 0.75);
 					border-radius: 0.375em;
 					content: '';
@@ -3166,7 +3174,7 @@
 		font-size: 0.9em;
 	}
 
-		#footer .copyright a {
+		#footer .copyright .a-main-css {
 			color: inherit;
 		}
 
@@ -3185,7 +3193,7 @@
 		text-transform: uppercase;
 	}
 
-		#menu ul a, #menu ul span {
+		#menu ul .a-main-css, #menu ul span {
 			border-bottom: 0;
 			color: inherit;
 			cursor: pointer;
@@ -3194,11 +3202,11 @@
 			padding: 0.625em 0;
 		}
 
-			#menu ul a:hover, #menu ul span:hover {
+			#menu ul .a-main-css:hover, #menu ul span:hover {
 				color: #f56a6a;
 			}
 
-			#menu ul a.opener, #menu ul span.opener {
+			#menu ul .a-main-css.opener, #menu ul span.opener {
 				-moz-transition: color 0.2s ease-in-out;
 				-webkit-transition: color 0.2s ease-in-out;
 				-ms-transition: color 0.2s ease-in-out;
@@ -3208,7 +3216,7 @@
 				position: relative;
 			}
 
-				#menu ul a.opener:before, #menu ul span.opener:before {
+				#menu ul .a-main-css.opener:before, #menu ul span.opener:before {
 					-moz-osx-font-smoothing: grayscale;
 					-webkit-font-smoothing: antialiased;
 					font-family: FontAwesome;
@@ -3217,7 +3225,7 @@
 					text-transform: none !important;
 				}
 
-				#menu ul a.opener:before, #menu ul span.opener:before {
+				#menu ul .a-main-css.opener:before, #menu ul span.opener:before {
 					-moz-transition: color 0.2s ease-in-out, -moz-transform 0.2s ease-in-out;
 					-webkit-transition: color 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 					-ms-transition: color 0.2s ease-in-out, -ms-transform 0.2s ease-in-out;
@@ -3228,15 +3236,15 @@
 					right: 0;
 				}
 
-				#menu ul a.opener:hover:before, #menu ul span.opener:hover:before {
-					color: #f56a6a;
+				#menu ul .a-main-css.opener:hover:before, #menu ul span.opener:hover:before {
+					color: #f56a6a !important;
 				}
 
-				#menu ul a.opener.active + ul, #menu ul span.opener.active + ul {
+				#menu ul .a-main-css.opener.active + ul, #menu ul span.opener.active + ul {
 					display: block;
 				}
 
-				#menu ul a.opener.active:before, #menu ul span.opener.active:before {
+				#menu ul .a-main-css.opener.active:before, #menu ul span.opener.active:before {
 					-moz-transform: rotate(-180deg);
 					-webkit-transform: rotate(-180deg);
 					-ms-transform: rotate(-180deg);
@@ -3256,7 +3264,7 @@
 			padding-left: 1em;
 		}
 
-			#menu > ul > li > ul a, #menu > ul > li > ul span {
+			#menu > ul > li > ul .a-main-css, #menu > ul > li > ul span {
 				font-size: 0.8em;
 			}
 
