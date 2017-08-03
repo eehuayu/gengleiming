@@ -37,13 +37,11 @@ class ArticleCreateView(generic.CreateView, PermissionRequiredMixin):
         ctx['categories'] = models.Category.objects.all()
         return ctx
 
-    # def form_valid(self, form):
-    #     f = form.save(False)
-    #     keywords = self.request.POST.get("keyword_add")
-    #     f.user = self.request.user
-    #     f.keywords = keywords
-    #     f.save()
-    #     return super(ArticleCreateView, self).form_valid(form)
+    def form_valid(self, form):
+        f = form.save(False)
+        f.user = self.request.user
+        f.save()
+        return super(ArticleCreateView, self).form_valid(form)
 
 
 # class CategoryCreateView(generic.View):
