@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.HomeView.as_view(), name="home"),
     url(r'^fortestapp/', include("allapps.fortestapp.urls", namespace='fortestapp')),
-    url(r'^account/', include("django.contrib.auth.urls", namespace='account')),
+    url(r'^accounts/', include("django.contrib.auth.urls", namespace='accounts')),
     url(r'^record/', include("allapps.record.urls", namespace='record')),
     url(r'^cms/', include("allapps.cms.urls", namespace='cms')),
 ]

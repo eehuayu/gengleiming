@@ -1,17 +1,17 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.http import HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.views import generic
 
 from allapps.cms import forms
 from allapps.cms import models
+from share.log import logger
 
 
-# class ArticleListView(generic.ListView):
-#     """文章列表"""
-#     template_name = "cms/index.html"
-#     model = Article
-#
+class ArticleListView(generic.ListView):
+    """文章列表"""
+    template_name = "cms/save_success.html"
+    model = models.Article
+
 #     def get_queryset(self):
 #         return super(ArticleListView, self).get_queryset().order_by("-create_time")
 #
@@ -30,7 +30,7 @@ class ArticleCreateView(generic.CreateView, PermissionRequiredMixin):
     template_name = "cms/write.html"
     model = models.Article
     form_class = forms.CmsForm
-    success_url = reverse_lazy("cms:index")
+    success_url = reverse_lazy("cms:article_list")
 
     def get_context_data(self, **kwargs):
         ctx = super(ArticleCreateView, self).get_context_data(**kwargs)
@@ -40,8 +40,15 @@ class ArticleCreateView(generic.CreateView, PermissionRequiredMixin):
     def form_valid(self, form):
         f = form.save(False)
         f.user = self.request.user
+        # 外键要重新save --mark
+        # f.category = form.category
         f.save()
         return super(ArticleCreateView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        logger.debug(form.cleaned_data)
+        logger.debug(form.errors)
+        return super(ArticleCreateView, self).form_invalid(form)
 
 
 # class CategoryCreateView(generic.View):

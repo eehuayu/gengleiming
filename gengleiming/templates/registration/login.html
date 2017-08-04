@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 {% block title %}登陆界面{% endblock %}
-{% block content %}
+{% block main %}
     <div class="container">
+        <br>
         <form method="post" class="form-horizontal">
             {% csrf_token %}
-            <div class="form-group row">
-                <label for="username" class="col-sm-4 col-form-label">用户名</label>
+            <div class="form-group">
+                <label for="username" class="col-sm-4 control-label">用户名</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+                    <input type="text" class="input-main-css" id="username" name="username" placeholder="用户名">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="password" class="col-sm-4 col-form-label">密码</label>
+            <div class="form-group">
+                <label for="password" class="col-sm-4 control-label">密码</label>
                 <div class="col-sm-4">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="密码">
+                    <input type="password" class="input-main-css" id="password" name="password" placeholder="密码">
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group">
                 <label for="password" class="col-sm-4 col-form-label"></label>
                 <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary form-control">登录</button>
+                    <button type="submit" class="button-main-css col-sm-12">登录</button>
                 </div>
             </div>
         </form>

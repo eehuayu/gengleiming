@@ -19,6 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def location(x):
     return os.path.join(BASE_DIR, x)
 
+
 # location = lambda x: os.path.join(BASE_DIR, x)
 
 # Quick-start development settings - unsuitable for production
@@ -131,3 +132,75 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = location('static')
+
+# --------------------- 日志系统的配置 --------------------------
+
+LOG_FORMAT = '\n'.join((
+    '/' + '-' * 80,
+    '[%(levelname)s][%(asctime)s][%(process)d:%(thread)d][%(filename)s:%(lineno)d %(funcName)s]:',
+    '%(message)s',
+    '-' * 80 + '/',
+))
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'standard': {
+            'format': LOG_FORMAT,
+        },
+    },
+
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'django_file': {
+            'level': 'DEBUG',  # debug级别的log会打印出来，这里可以根据测试环境设置成动态的
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, "logs/django.log"),
+            'maxBytes': 1024 * 1024 * 300,  # 单个文件的大小
+            'backupCount': 5,               # log文件最大个数
+            'formatter': 'standard',        # 选择输出的log格式，这里是上面自定义的格式
+        },
+        'console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        },
+        'null': {
+            'class': 'logging.NullHandler',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['django_file'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.security': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'py.warnings': {
+            'handlers': ['console'],
+        },
+    }
+}

@@ -1,22 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block main_header %}
-    <header id="header">
-        <span class="logo"><strong>Raymon </strong> - 为了改变世界</span>
-    </header>
-{% endblock %}
-
 {% block main %}
     <br>
-    <form class="form-horizontal" role="form" action="{% url 'cms:write' %}" method="post">
+    <form class="form-horizontal" role="form" action="{% url 'cms:write' %}" method="post" onsubmit="return do_content();">
         {% csrf_token %}
         <div class="form-group">
                 <div class="col-md-10">
                     <input type="text" class="input-main-css" placeholder="文章标题" id="id_title" name="title" required>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" class="button-main-css" style="width: 100%">发布文章</button>
+                    <button type="submit" class="button-main-css" style="width: 100%" id="save">发布文章</button>
                 </div>
         </div>
         <div class="form-group">
@@ -38,58 +32,58 @@
         <input type="hidden" value="" id="id_content" name="content">
     </form>
 
-    <!-- model -->
-    <div class="modal fade" id="create_category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span
-                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">增加分类</h4>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        <input type="text" class="form-control" id="category_name" name="category_name"
-                               placeholder="输入新分类">
-                    </div>
-                    <div>
-                        <textarea style="resize:none" name="" id="category_description" name="category_description"
-                                  cols="30" rows="10"
-                                  class="form-control"
-                                  placeholder="请输入描述"></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary" id="category_add">增加</button>
-                </div>
-            </div>
-        </div>
-    </div>
+{#    <!-- model -->#}
+{#    <div class="modal fade" id="create_category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"#}
+{#         aria-hidden="true">#}
+{#        <div class="modal-dialog">#}
+{#            <div class="modal-content">#}
+{#                <div class="modal-header">#}
+{#                    <button type="button" class="close" data-dismiss="modal"><span#}
+{#                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>#}
+{#                    <h4 class="modal-title" id="myModalLabel">增加分类</h4>#}
+{#                </div>#}
+{#                <div class="modal-body">#}
+{#                    <div>#}
+{#                        <input type="text" class="form-control" id="category_name" name="category_name"#}
+{#                               placeholder="输入新分类">#}
+{#                    </div>#}
+{#                    <div>#}
+{#                        <textarea style="resize:none" name="" id="category_description" name="category_description"#}
+{#                                  cols="30" rows="10"#}
+{#                                  class="form-control"#}
+{#                                  placeholder="请输入描述"></textarea>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="modal-footer">#}
+{#                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>#}
+{#                    <button type="button" class="btn btn-primary" id="category_add">增加</button>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 
-    <div class="modal fade" id="keyword_list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span
-                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">选择关键字</h4>
-                </div>
-                <div class="modal-body">
-                    {% for keyword in keywords %}
-                        <input type="radio" name="{{ keyword }}" id="{{ keyword }}" value="{{ keyword }}">
-                        <label for="{{ keyword }}">{{ keyword }} </label>
-                    {% endfor %}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary" id="add_keywords_tolist">增加</button>
-                </div>
-            </div>
-        </div>
-    </div>
+{#    <div class="modal fade" id="keyword_list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"#}
+{#         aria-hidden="true">#}
+{#        <div class="modal-dialog">#}
+{#            <div class="modal-content">#}
+{#                <div class="modal-header">#}
+{#                    <button type="button" class="close" data-dismiss="modal"><span#}
+{#                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>#}
+{#                    <h4 class="modal-title" id="myModalLabel">选择关键字</h4>#}
+{#                </div>#}
+{#                <div class="modal-body">#}
+{#                    {% for keyword in keywords %}#}
+{#                        <input type="radio" name="{{ keyword }}" id="{{ keyword }}" value="{{ keyword }}">#}
+{#                        <label for="{{ keyword }}">{{ keyword }} </label>#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#                <div class="modal-footer">#}
+{#                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>#}
+{#                    <button type="button" class="btn btn-primary" id="add_keywords_tolist">增加</button>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 {% endblock %}
 
 {% block scripts %}
@@ -102,6 +96,7 @@
                 "height": "600px"
             });
         });
+
         var editor = new window.wangEditor('.content_div');
         // 自定义菜单配置
         editor.customConfig.menus = [
@@ -127,6 +122,10 @@
         editor.customConfig.zIndex = 1000;
         editor.create();
 
+        function do_content() {
+            $('#id_content').val(editor.txt.html());
+            return true;
+        }
 {#        $("#add_keywords_tolist").click(function () {#}
 {#            var str = $("#id_keyword_add").val() == '' ? '' : ',';#}
 {#            $("#keyword_list .modal-body input:checked").each(function () {#}
