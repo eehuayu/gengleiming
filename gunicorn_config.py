@@ -2,8 +2,7 @@
 
 # gunicorn gengleiming.wsgi:application --blind 0.0.0.0:33000
 
-# 设置进程名，方便在supervisor里管理
-proc_name = 'gengleiming'
+proc_name = 'gengleiming_web'
 # sync/gevent
 worker_class = 'gevent'
 bind = ['0.0.0.0:33000']
