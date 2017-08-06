@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <br>
+    <form class="form-horizontal" method="post" action="{% url 'cms:category_create' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" class="input-main-css" name="name">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="button-main-css" style="width:100%;">添加分类</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="50%">名称</th>
+            <th width="50%">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in category_list %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>
+                    <a href="a-main-css">修改</a>
+                    <a href="a-main-css">删除</a>
+                </td>
+
+            </tr>
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>
+                    <a href="a-main-css">修改</a>
+                    <a href="a-main-css">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+    </script>
+{% endblock %}

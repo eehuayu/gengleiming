@@ -29,7 +29,7 @@ class ArticleCreateView(generic.CreateView, PermissionRequiredMixin):
     permission_required = ("dormitory.write", )
     template_name = "cms/write.html"
     model = models.Article
-    form_class = forms.CmsForm
+    form_class = forms.ArticleForm
     success_url = reverse_lazy("cms:article_list")
 
     def get_context_data(self, **kwargs):
@@ -51,21 +51,21 @@ class ArticleCreateView(generic.CreateView, PermissionRequiredMixin):
         return super(ArticleCreateView, self).form_invalid(form)
 
 
-# class CategoryCreateView(generic.View):
-#     """创建分类"""
-#     def post(self, request):
-#         name = request.POST.get("name").strip()
-#         description = request.POST.get("description")
-#         if not name:
-#             return JsonResponse({"message": "类别不能为空"})
-#         try:
-#             Category.objects.get(name=name)
-#             return JsonResponse({"message": name + "类别已存在"})
-#         except Category.DoesNotExist:
-#             category = Category.objects.create(name=name, description=description)
-#             return JsonResponse({"id": category.id, "name": category.name, "message": "添加成功"})
-#
-#
+class ManageTemplateView(generic.TemplateView):
+    template_name = 'cms/manage.html'
+
+
+class CategoryCreateView(generic.CreateView):
+    """创建分类"""
+    success_url = "success.html"
+    model = models.Category
+    form_class = forms.CategoryForm
+
+    def form_invalid(self, form):
+        logger.debug(form.errors)
+        print(form.errors)
+
+
 # class ReadDetailView(generic.DetailView):
 #     template_name = "cms/detail.html"
 #     model = Article

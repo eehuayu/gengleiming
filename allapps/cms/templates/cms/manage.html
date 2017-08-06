@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <br>
+    <div class="row">
+        <div class="col-sm-2 col-sm-offset-4"><a href="{% url 'cms:category_list' %}" class="button-main-css">分类管理</a></div>
+        <div class="col-sm-2"><a href="" class="button-main-css">文章管理</a></div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+    </script>
+{% endblock %}
