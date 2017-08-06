@@ -1,13 +1,22 @@
 from django.views import generic
 
-from allapps.record.models import IpRecord
+from allapps.cms import models
 
 
 class HomeView(generic.TemplateView):
     template_name = "gengleiming/home.html"
 
+    def get_article_list(self):
+        return models.Article.objects.all()
+
+    def get_category_list(self):
+        return models.Category.objects.all()
+
     def get_context_data(self, **kwargs):
         ctx = super(HomeView, self).get_context_data(**kwargs)
+
+        ctx['article_list'] = self.get_article_list()
+        ctx['category_list'] = self.get_category_list()
         # if 'HTTP_X_FORWARDED_FOR' in self.request.META:
         #     client_ip = self.request.META['HTTP_X_FORWARDED_FOR']
         #     client_ip = client_ip.split(",")[0]
@@ -17,7 +26,7 @@ class HomeView(generic.TemplateView):
         #     client_ip = '异常'
         # if IpRecord.objects.count() < 10000:
         #     IpRecord.objects.create(ip=client_ip)
-        ctx['home'] = True
+
         return ctx
 
 

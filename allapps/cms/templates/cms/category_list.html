@@ -3,17 +3,16 @@
 
 {% block main %}
     <br>
-    <form class="form-horizontal" method="post" action="{% url 'cms:category_create' %}">
-        {% csrf_token %}
+    <div class="form-horizontal">
         <div class="form-group">
-            <div class="col-md-10">
-                <input type="text" class="input-main-css" name="name">
+            <div class="col-md-3">
+                <input type="text" class="input-main-css" id="id_name" name="name" required>
             </div>
-            <div class="col-md-2">
-                <button type="submit" class="button-main-css" style="width:100%;">添加分类</button>
+            <div>
+                <button type="button" class="button-main-css" id="save">添加分类</button>
             </div>
         </div>
-    </form>
+    </div>
 
     <table class="table">
         <thead>
@@ -32,21 +31,36 @@
                 </td>
 
             </tr>
-            <tr>
-                <td>{{ category.name }}</td>
-                <td>
-                    <a href="a-main-css">修改</a>
-                    <a href="a-main-css">删除</a>
-                </td>
-            </tr>
         {% endfor %}
         </tbody>
     </table>
-
+    {% csrf_token %}
 {% endblock %}
 
 {% block scripts %}
     {{ block.super }}
+    <script src="{% static 'gengleiming/js/bootstrap-confirm.js' %}"></script>
     <script type="text/javascript">
+        $('#save').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "{% url 'cms:category_create' %}",
+                data: {
+                    "name": $("#id_name").val(),
+                    "csrfmiddlewaretoken":$("[name=csrfmiddlewaretoken]").val(),
+                },
+                success: function (response) {
+                    if (response.ret == 0) {
+                        // 成功
+                        $.alert("success");
+                    } else {
+                        // 失败
+                        $.alert(response.error_msg);
+                    }
+                }
+            })
+
+        })
+
     </script>
 {% endblock %}

@@ -33,7 +33,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['www.fumingbanshen.com', '127.0.0.1']
 
+# 登录和注销之后重定向的页面
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -124,7 +126,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

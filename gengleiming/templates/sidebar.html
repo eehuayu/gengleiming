@@ -14,9 +14,12 @@
                 <h2>分类</h2>
             </header>
             <ul>
-                <li><a href="#" class="a-main-css">Python</a></li>
-                <li><a href="#" class="a-main-css">Mysql</a></li>
-                <li><a href="#" class="a-main-css">Linux</a></li>
+                {% for category in category_list %}
+                    <li><a href="#" class="a-main-css">{{ category.name }}</a></li>
+                {% endfor %}
+
+                {#                <li><a href="#" class="a-main-css">Mysql</a></li>#}
+                {#                <li><a href="#" class="a-main-css">Linux</a></li>#}
                 {#        <li>#}
                 {#            <span class="opener">Submenu</span>#}
                 {#            <ul>#}
@@ -26,8 +29,8 @@
                 {#                <li><a href="#">Feugiat Veroeros</a></li>#}
                 {#            </ul>#}
                 {#        </li>#}
-                <li><a href="#" class="a-main-css">Django</a></li>
-                <li><a href="#" class="a-main-css">HTML/CSS/JS/BOOTSTRAP</a></li>
+                {#                <li><a href="#" class="a-main-css">Django</a></li>#}
+                {#                <li><a href="#" class="a-main-css">HTML/CSS/JS/BOOTSTRAP</a></li>#}
                 {#        <li>#}
                 {#            <span class="opener">Another Submenu</span>#}
                 {#            <ul>#}
@@ -37,8 +40,8 @@
                 {#                <li><a href="#">Feugiat Veroeros</a></li>#}
                 {#            </ul>#}
                 {#        </li>#}
-                <li><a href="#" class="a-main-css">Git</a></li>
-                <li><a href="#" class="a-main-css">Other</a></li>
+                {#                <li><a href="#" class="a-main-css">Git</a></li>#}
+                {#                <li><a href="#" class="a-main-css">Other</a></li>#}
             </ul>
         </nav>
 
@@ -78,13 +81,12 @@
                 <p>交个朋友？<br>技术交流？<br>联系方式在下面哦！</p>
                 <ul class="contact">
                     <li class="fa-envelope-o">244277947@qq.com</li>
-{#                    <li class="fa-phone">(000) 000-0000</li>#}
+                    {#                    <li class="fa-phone">(000) 000-0000</li>#}
                     <li class="fa-home">深圳</li>
                 </ul>
             {% endblock %}
 
         </section>
-
 
 
     </div>

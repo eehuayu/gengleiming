@@ -3174,7 +3174,7 @@ dl dd {
     -ms-user-select: none;
     user-select: none;
     color: #3d4449;
-    font-family: "Roboto Slab", serif;
+    /*font-family: "Roboto Slab", serif;*/
     letter-spacing: 0.075em;
     list-style: none;
     margin-bottom: 0;
@@ -3186,7 +3186,6 @@ dl dd {
     color: inherit;
     cursor: pointer;
     display: block;
-    font-size: 0.9em;
     padding: 0.625em 0;
 }
 

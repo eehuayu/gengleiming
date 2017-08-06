@@ -29,13 +29,14 @@
                 {% block main_header %}
                     <header id="header">
                         <a href="{% url 'home' %}" class="a-main-css logo" style="height: 2em;"><span style="position: absolute;bottom: 0.5em;"><strong>Raymon </strong> - 为了改变世界</span></a>
-                        {% if home %}
                             <ul class="icons" style="height: 2em;">
                                 {% if request.user.is_authenticated %}
-                                    <li style="height: 2em;"><a href="{% url 'cms:manage' %}" class="button-main-css" style="position: absolute; bottom: 0.5em;right: 0em;">管理</a></li>
-                                    <li style="height: 2em;"><a href="{% url 'cms:write' %}" class="button-main-css" style="position: absolute; bottom: 0.5em;right: 8em;">写文章</a></li>
+                                    <li style="height: 2em;"><a href="{% url 'accounts:logout' %}" class="a-main-css" style="position: absolute; bottom: 0.5em;right: 0em;">Logout</a></li>
+                                    <li style="height: 2em;"><a href="{% url 'cms:manage' %}" class="a-main-css" style="position: absolute; bottom: 0.5em;right: 8em;">管理</a></li>
+                                    <li style="height: 2em;"><a href="{% url 'cms:write' %}" class="a-main-css" style="position: absolute; bottom: 0.5em;right: 12em;">写文章</a></li>
+
                                 {% else %}
-                                    <li style="height: 2em;"><a href="{% url 'accounts:login' %}" class="button-main-css" style="position:absolute;bottom:0.5em;right:0em">Login</a></li>
+                                    <li style="height: 2em;"><a href="{% url 'accounts:login' %}" class="a-main-css" style="position:absolute;bottom:0.5em;right:0em">Login</a></li>
                                 {% endif %}
                                 {#        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>#}
                                 {#        <li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>#}
@@ -43,7 +44,6 @@
                                 {#        <li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>#}
                                 {#                                                        <li><a href="" class="button-main-css">登录</a></li>#}
                             </ul>
-                        {% endif %}
 
                     </header>
                 {% endblock %}

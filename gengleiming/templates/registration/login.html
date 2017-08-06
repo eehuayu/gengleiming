@@ -26,11 +26,3 @@
         </form>
     </div>
 {% endblock %}
-{% block scripts %}
-    {{ block.super }}
-    <script>
-        $(function () {
-            $('.navbar').removeClass('navbar-fixed-top').removeClass('navbar-default').addClass('navbar-inverse');
-        });
-    </script>
-{% endblock %}
