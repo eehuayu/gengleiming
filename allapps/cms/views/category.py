@@ -3,7 +3,7 @@ from django.views import generic
 from pymysql import IntegrityError
 
 from allapps.cms import models
-from share.error_code import ERROR_DESC, DUPLICATE_FOR_UNIQUE, ENTRY_NONE, UNKNOWN_ERROR
+from share import error_code
 from share.log import logger
 
 
@@ -18,8 +18,8 @@ class CategoryCreateView(generic.CreateView):
 
         if not name:
             return JsonResponse(dict(
-                ret=ENTRY_NONE,
-                error_msg=ERROR_DESC[ENTRY_NONE],
+                ret=error_code.ENTRY_NONE,
+                error_msg=error_code.ENTRY_NONE_DESC,
             ))
 
         try:
@@ -29,15 +29,14 @@ class CategoryCreateView(generic.CreateView):
             ))
         except IntegrityError:
             return JsonResponse(dict(
-                ret=DUPLICATE_FOR_UNIQUE,
-                error_msg=ERROR_DESC[DUPLICATE_FOR_UNIQUE]
+                ret=error_code.DUPLICATE_FOR_UNIQUE,
+                error_msg=error_code.DUPLICATE_FOR_UNIQUE_DESC,
             ))
         except Exception as e:
             logger.error(e)
             return JsonResponse(dict(
-                ret=UNKNOWN_ERROR,
-                error_msg=ERROR_DESC[UNKNOWN_ERROR]
-
-            ))
+                ret=error_code.UNKNOWN_ERROR,
+                error_msg=error_code.UNKNOWN_ERROR_DESC,
+           ))
 
 

@@ -33,9 +33,6 @@ class Article(Base):
     like_times = models.PositiveIntegerField(verbose_name="喜欢数", default=0)
     update_time = models.DateTimeField(verbose_name="更新时间", auto_now=True)
 
-    def __str__(self):
-        return self.title
-
     @property
     def time_desc(self):
         from .helper import get_time_desc
@@ -51,9 +48,13 @@ class Article(Base):
         article_comment_count = article.comments.count()
         return article_comment_count
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = verbose_name_plural = "文章"
         permissions = (("write", "写文章"), )
+        ordering = ("-create_time", )
 
 
 class Comment(Base):

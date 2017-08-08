@@ -1,21 +1,19 @@
 """
-前端接受到的错误码
+错误码
 """
 
 # ------------------------------- 数据库异常返回码 -----------------------------
 # 违反唯一约束
 DUPLICATE_FOR_UNIQUE = -100
+DUPLICATE_FOR_UNIQUE_DESC = "你输入的内容已存在"
 
 
 # ------------------------------- 其他 ----------------------------------------
+
 # 未知错误
 UNKNOWN_ERROR = -1
+UNKNOWN_ERROR_DESC = "未知错误"
+
 # 输入内容为空或为None
 ENTRY_NONE = -1000
-
-
-ERROR_DESC = {
-    DUPLICATE_FOR_UNIQUE: "你输入的内容已存在",
-    ENTRY_NONE: "你输入的内容为空，请检查",
-    UNKNOWN_ERROR: "未知错误",
-}
+ENTRY_NONE_DESC = "你输入的内容为空，请检查"
