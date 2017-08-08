@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gengleiming',
     'gunicorn',
-    'allapps.fortestapp',
-    'allapps.record',
     'allapps.cms',
 ]
 

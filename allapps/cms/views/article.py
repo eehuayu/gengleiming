@@ -55,17 +55,6 @@ class ManageTemplateView(generic.TemplateView):
     template_name = 'cms/manage.html'
 
 
-class CategoryCreateView(generic.CreateView):
-    """创建分类"""
-    success_url = "success.html"
-    model = models.Category
-    form_class = forms.CategoryForm
-
-    def form_invalid(self, form):
-        logger.debug(form.errors)
-        print(form.errors)
-
-
 # class ReadDetailView(generic.DetailView):
 #     template_name = "cms/detail.html"
 #     model = Article

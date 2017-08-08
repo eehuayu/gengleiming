@@ -22,9 +22,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.HomeView.as_view(), name="home"),
-    url(r'^fortestapp/', include("allapps.fortestapp.urls", namespace='fortestapp')),
     url(r'^accounts/', include("django.contrib.auth.urls", namespace='accounts')),
-    url(r'^record/', include("allapps.record.urls", namespace='record')),
     url(r'^cms/', include("allapps.cms.urls", namespace='cms')),
     url(r'^success/', views.SuccessView.as_view(), name="success"),
     url(r'^fail/', views.FailView.as_view(), name="fail"),
