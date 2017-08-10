@@ -26,28 +26,28 @@
     </header>
     <div class="features">
         <article>
-            <span class="icon fa-diamond"></span>
+            {#            <span class="icon fa-diamond"></span>#}
             <div class="content">
                 <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>
                 <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例</p>
             </div>
         </article>
         <article>
-            <span class="icon fa-paper-plane"></span>
+            {#            <span class="icon fa-paper-plane"></span>#}
             <div class="content">
                 <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>
                 <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例.</p>
             </div>
         </article>
         <article>
-            <span class="icon fa-rocket"></span>
+            {#            <span class="icon fa-rocket"></span>#}
             <div class="content">
                 <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>
                 <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例</p>
             </div>
         </article>
         <article>
-            <span class="icon fa-signal"></span>
+            {#            <span class="icon fa-signal"></span>#}
             <div class="content">
                 <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>
                 <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例</p>
@@ -58,92 +58,43 @@
 
 {% block main_content %}
     <header class="major">
-        <h2>文章列表</h2>
+        <a href="" style="font-size: 2rem;font-weight: 500;color: #333">文章列表</a>
     </header>
-    <div class="posts">
+    {#    <div class="posts">#}
     {% for article in article_list %}
-        <article>
-            {#            <a href="#" class="image"><img src="{% static 'gengleiming/img/pic01.jpg' %}"#}
-            {#                                           alt=""/></a>#}
-            <h3><a href="">{{ article.title }}</a></h3>
-            <p>{{ article.content|safe }}</p>
-        </article>
+        <div style="color: #333333;">
+            <div style="border-bottom: 1px dashed #ccc;line-height: 3rem">
+                <a href="" style="font-weight: 700;font-size: 1.2rem;">{{ article.title }}</a>
+            </div>
+            <div>
+                <span style="color: gray;font-size: 0.8rem">{{ article.create_time }}</span>
+                <span style="color: gray;font-size: 0.8rem">阅读 {{ article.visit_times }} 评论 {{ article.comment_count }} 喜欢 {{ article.like_times }}</span>
+            </div>
+            <div>
+                <p style="font-size: 1rem;margin-top:0.6rem">
+                    <span style="color: #555555">摘要：</span>
+                    {{ article.summary }}
+                    <a href="" style="color: #a99999;">阅读全文>></a>
+                </p>
+            </div>
+
+        </div>
+        <hr>
     {% endfor %}
 
-
-{#        <article>#}
-            {#            <a href="#" class="image"><img src="{% static 'images/pic02.jpg' %}" alt=""/></a>#}
-{#            <h3>Nulla amet dolore</h3>#}
-{#            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam#}
-{#                facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>#}
-{#            <ul class="actions">#}
-{#                <li><a href="#" class="button-main-css">More</a></li>#}
-{#            </ul>#}
-{#        </article>#}
-{#        <article>#}
-            {#            <a href="#" class="image"><img src="{% static 'images/pic03.jpg' %}" alt=""/></a>#}
-{#            <h3>Tempus ullamcorper</h3>#}
-{#            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam#}
-{#                facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>#}
-{#            <ul class="actions">#}
-{#                <li><a href="#" class="button-main-css">More</a></li>#}
-{#            </ul>#}
-{#        </article>#}
-{#        <article>#}
-            {#            <a href="#" class="image"><img src="{% static 'images/pic04.jpg' %}" alt=""/></a>#}
-{#            <h3>Sed etiam facilis</h3>#}
-{#            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam#}
-{#                facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>#}
-{#            <ul class="actions">#}
-{#                <li><a href="#" class="button-main-css">More</a></li>#}
-{#            </ul>#}
-{#        </article>#}
-{#        <article>#}
-            {#            <a href="#" class="image"><img src="{% static 'images/pic05.jpg' %}" alt=""/></a>#}
-{#            <h3>Feugiat lorem aenean</h3>#}
-{#            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam#}
-{#                facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>#}
-{#            <ul class="actions">#}
-{#                <li><a href="#" class="button-main-css">More</a></li>#}
-{#            </ul>#}
-{#        </article>#}
-{#        <article>#}
-            {#            <a href="#" class="image"><img src="{% static 'images/pic06.jpg' %}" alt=""/></a>#}
-{#            <h3>Amet varius aliquam</h3>#}
-{#            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam#}
-{#                facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>#}
-{#            <ul class="actions">#}
-{#                <li><a href="#" class="button-main-css">More</a></li>#}
-{#            </ul>#}
-{#        </article>#}
-{#        <article>#}
-            {#            <a href="#" class="image"><img src="{% static 'images/pic04.jpg' %}" alt=""/></a>#}
-{#            <h3>Sed etiam facilis</h3>#}
-{#            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam#}
-{#                facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>#}
-{#            <ul class="actions">#}
-{#                <li><a href="#" class="button-main-css">More</a></li>#}
-{#            </ul>#}
-{#        </article>#}
-{#        <article>#}
-            {#            <a href="#" class="image"><img src="{% static 'images/pic05.jpg' %}" alt=""/></a>#}
-{#            <h3>Feugiat lorem aenean</h3>#}
-{#            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam#}
-{#                facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>#}
-{#            <ul class="actions">#}
-{#                <li><a href="#" class="button-main-css">More</a></li>#}
-{#            </ul>#}
-{#        </article>#}
-{#        <article>#}
-            {#            <a href="#" class="image"><img src="{% static 'images/pic06.jpg' %}" alt=""/></a>#}
-{#            <h3>Amet varius aliquam</h3>#}
-{#            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam#}
-{#                facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>#}
-{#            <ul class="actions">#}
-{#                <li><a href="#" class="button-main-css">More</a></li>#}
-{#            </ul>#}
-{#        </article>#}
-{#    </div>#}
+    <div align="center">
+        <button class="button-main-css">更多内容>>></button>
+    </div>
+    {#        <article>#}
+    {#            <a href="#" class="image"><img src="{% static 'images/pic06.jpg' %}" alt=""/></a>#}
+    {#            <h3>Amet varius aliquam</h3>#}
+    {#            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam#}
+    {#                facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>#}
+    {#            <ul class="actions">#}
+    {#                <li><a href="#" class="button-main-css">More</a></li>#}
+    {#            </ul>#}
+    {#        </article>#}
+    {#    </div>#}
 {% endblock %}
 
 {% block footer %}
@@ -151,7 +102,7 @@
     <!-- Footer -->
     <div class="text-center">
         <p class="copyright small">&copy; 2017 fumingbanshen.com 版权所有
-            <a href="http://www.miitbeian.gov.cn/" >粤ICP备16104888号-1</a>
+            <a href="http://www.miitbeian.gov.cn/">粤ICP备16104888号-1</a>
         </p>
     </div>
 

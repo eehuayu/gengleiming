@@ -48,6 +48,16 @@ class Article(Base):
         article_comment_count = article.comments.count()
         return article_comment_count
 
+    @property
+    def summary(self):
+        """
+        摘要
+        :return:
+        """
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(self.content, "html.parser")
+        return soup.get_text()[:200]
+
     def __str__(self):
         return self.title
 

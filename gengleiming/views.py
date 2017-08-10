@@ -24,8 +24,7 @@ class HomeView(generic.TemplateView):
         #     client_ip = self.request.META['REMOTE_ADDR']
         # if not client_ip:
         #     client_ip = '异常'
-        # if IpRecord.objects.count() < 10000:
-        #     IpRecord.objects.create(ip=client_ip)
+        # IpRecord.objects.create(ip=client_ip)
 
         return ctx
 

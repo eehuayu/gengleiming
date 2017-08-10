@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^fail/', views.FailView.as_view(), name="fail"),
 ]
 
-urlpatterns += staticfiles_urlpatterns()  # 配置{% load static %}：runserver无需此步骤，其他服务器需要，当然用{% load staticfiles %}标签可代替此步骤
+# 配置{% load static %}：runserver无需此步骤，其他服务器需要，当然用{% load staticfiles %}标签可代替此步骤
+urlpatterns += staticfiles_urlpatterns()
