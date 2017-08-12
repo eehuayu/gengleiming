@@ -3271,3 +3271,33 @@ a {
     color: inherit;
     cursor: pointer;
 }
+
+.title-list {
+    color: #333333;
+    background-color: ghostwhite;
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 2em;
+}
+
+.title-content{
+    line-height: 3em;
+}
+
+.category-name{
+    background-color: lightsteelblue;
+    border-radius: 1em;
+    padding: 0 0.5em 0 0.5em;
+    color: white
+}
+
+.article-name{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.follow-desc{
+    color: gray;
+    font-size: 0.8rem;
+    margin-left: 1em
+}

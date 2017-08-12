@@ -38,5 +38,3 @@ class CategoryCreateView(generic.CreateView):
                 ret=error_code.UNKNOWN_ERROR,
                 error_msg=error_code.UNKNOWN_ERROR_DESC,
            ))
-
-

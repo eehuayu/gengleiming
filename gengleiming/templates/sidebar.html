@@ -15,7 +15,7 @@
             </header>
             <ul>
                 {% for category in category_list %}
-                    <li><a href="#" class="a-main-css">{{ category.name }}</a></li>
+                    <li><a href="{% url 'cms:article_list' category.id %}" class="a-main-css">{{ category.name }}</a></li>
                 {% endfor %}
 
                 {#                <li><a href="#" class="a-main-css">Mysql</a></li>#}

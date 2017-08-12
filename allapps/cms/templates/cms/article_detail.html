@@ -10,6 +10,14 @@
         {{ article.content|safe }}
     </div>
     <hr>
-    posted {{ article.create_time }} 阅读 {{ article.visit_times }} 评论 {{ article.comment_count }}
+    <div align="right">
+        <a href="" class="button-main-css small">评论</a>
+        {#    </div>#}
+        {#    <div align="right">#}
+        <span style="margin-left: 3em">
+            posted {{ article.create_time }} 阅读 {{ article.visit_times }} 评论 {{ article.comment_count }}
+        </span>
+
+    </div>
 
 {% endblock %}

@@ -28,24 +28,26 @@
                 <!-- Header -->
                 {% block main_header %}
                     <header id="header">
-                        <div class="a-main-css logo" style="height: 2em;"><span
-                                style="position: absolute;bottom: 0.5em;">
-                            <a href="{% url 'home' %}"><strong>Raymon </strong> - 为了改变世界</a></span></div>
+                        <div class="a-main-css logo" style="height: 2em;">
+                            <span style="position: absolute;bottom: 0.5em;">
+                                <a href="{% url 'home' %}"> <strong>Raymon </strong> - 为了改变世界</a>
+                            </span>
+                        </div>
                         <ul class="icons" style="height: 2em;">
                             {% if request.user.is_authenticated %}
-                                <li style="height: 2em;"><a href="{% url 'accounts:logout' %}" class="a-main-css"
-                                                            style="position: absolute; bottom: 0.5em;right: 0em;">Logout</a>
+                                <li style="height: 2em;">
+                                    <a href="{% url 'accounts:logout' %}" class="a-main-css" style="position: absolute; bottom: 0.5em;right: 0em;">Logout</a>
                                 </li>
-                                <li style="height: 2em;"><a href="{% url 'cms:manage' %}" class="a-main-css"
-                                                            style="position: absolute; bottom: 0.5em;right: 8em;">管理</a>
+                                <li style="height: 2em;">
+                                    <a href="{% url 'cms:manage' %}" class="a-main-css" style="position: absolute; bottom: 0.5em;right: 8em;">管理</a>
                                 </li>
-                                <li style="height: 2em;"><a href="{% url 'cms:write' %}" class="a-main-css"
-                                                            style="position: absolute; bottom: 0.5em;right: 12em;">写文章</a>
+                                <li style="height: 2em;">
+                                    <a href="{% url 'cms:article_create' %}" class="a-main-css" style="position: absolute; bottom: 0.5em;right: 12em;">写文章</a>
                                 </li>
 
                             {% else %}
-                                <li style="height: 2em;"><a href="{% url 'accounts:login' %}" class="a-main-css"
-                                                            style="position:absolute;bottom:0.5em;right:0em">Login</a>
+                                <li style="height: 2em;">
+                                    <a href="{% url 'accounts:login' %}" class="a-main-css" style="position:absolute;bottom:0.5em;right:0em">Login</a>
                                 </li>
                             {% endif %}
 

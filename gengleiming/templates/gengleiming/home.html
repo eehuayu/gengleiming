@@ -10,10 +10,10 @@
             <p>A man who wants to change the world with his keyboard</p>
         </header>
         <p>写了这么久的代码，一直想要做一个个人网站用来分享技术和沉淀生活，苦于自己时间不多，一直未能有时间去做这件事情。趁着最近闲了下来，这件心头事终于迈出了第一步。
-            博客首开，甚是欢喜。有很多想要说的话，关于技术，关于生活，关于梦想，希望这个网站能让自己的生活过的更加充实。</p>
-        <ul class="actions">
-            <li><a href="#" class="button-main-css big">Learn More</a></li>
-        </ul>
+            博客首开，甚是欢喜。有很多想要说的话，关于技术，关于生活，关于梦想，希望这个网站能让自己的生活过的更加充实... ...</p>
+{#        <ul class="actions">#}
+{#            <li><a href="#" class="button-main-css big">Learn More</a></li>#}
+{#        </ul>#}
     </div>
     <span class="image object">
         <img src="{% static 'images/pic10.jpg' %}" alt=""/>
@@ -22,68 +22,68 @@
 
 {% block main_stick %}
     <header class="major">
-        <h2>认真推荐</h2>
+        <h2><a href="javascript:void(0);" onclick="$.alert('开发中，敬请期待...')">精品推荐</a></h2>
     </header>
     <div class="features">
-        <article>
+{#        <article>#}
             {#            <span class="icon fa-diamond"></span>#}
-            <div class="content">
-                <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>
-                <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例</p>
-            </div>
-        </article>
-        <article>
+{#            <div class="content">#}
+{#                <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>#}
+{#                <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例</p>#}
+{#            </div>#}
+{#        </article>#}
+{#        <article>#}
             {#            <span class="icon fa-paper-plane"></span>#}
-            <div class="content">
-                <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>
-                <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例.</p>
-            </div>
-        </article>
-        <article>
+{#            <div class="content">#}
+{#                <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>#}
+{#                <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例.</p>#}
+{#            </div>#}
+{#        </article>#}
+{#        <article>#}
             {#            <span class="icon fa-rocket"></span>#}
-            <div class="content">
-                <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>
-                <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例</p>
-            </div>
-        </article>
-        <article>
+{#            <div class="content">#}
+{#                <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>#}
+{#                <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例</p>#}
+{#            </div>#}
+{#        </article>#}
+{#        <article>#}
             {#            <span class="icon fa-signal"></span>#}
-            <div class="content">
-                <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>
-                <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例</p>
-            </div>
-        </article>
+{#            <div class="content">#}
+{#                <h3><a class="a-main-css" href="">示例示例示例示例</a></h3>#}
+{#                <p>示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例示例</p>#}
+{#            </div>#}
+{#        </article>#}
     </div>
 {% endblock %}
 
 {% block main_content %}
     <header class="major">
-        <a href="" style="font-size: 2rem;font-weight: 500;color: #333">文章列表</a>
+        <h2><a href="{% url 'cms:article_list' 0 %}">文章列表</a></h2>
     </header>
     {#    <div class="posts">#}
     {% for article in article_list %}
-        <div style="color: #333333;">
-            <div style="border-bottom: 1px dashed #ccc;line-height: 3rem">
-                <a href="{% url 'cms:article_detail' pk=article.id %}" style="font-weight: 700;font-size: 1.2rem;">{{ article.title }}</a>
+        <div class="title-list" style="padding:0.5em 1em 1em 1em">
+            <div class="article-content" style="border-bottom: 1px dashed #ccc">
+                <span class="category-name">{{ article.category.name }}</span>
+                <a href="{% url 'cms:article_detail' pk=article.id %}" class="article-name">{{ article.title }}</a>
+{#            </div>#}
+{#            <div>#}
+                <span class="follow-desc">{{ article.create_time }} 阅读 {{ article.visit_times }} 评论 {{ article.comment_count }} 喜欢 {{ article.like_times }}</span>
             </div>
             <div>
-                <span style="color: gray;font-size: 0.8rem">{{ article.create_time }}</span>
-                <span style="color: gray;font-size: 0.8rem">阅读 {{ article.visit_times }} 评论 {{ article.comment_count }} 喜欢 {{ article.like_times }}</span>
-            </div>
-            <div>
-                <p style="font-size: 1rem;margin-top:0.6rem">
-                    <span style="color: #555555">摘要：</span>
-                    {{ article.summary }}
+                <p style="font-size: 1rem;margin-top:0.6rem;margin-bottom: 1em">
+                    摘要：{{ article.summary }}
                     <a href="{% url 'cms:article_detail' pk=article.id %}" style="color: #a99999;">阅读全文>></a>
                 </p>
             </div>
 
         </div>
-        <hr>
+        <div style="height: 1em;"></div>
+{#        <hr>#}
     {% endfor %}
 
     <div align="center">
-        <button class="button-main-css">更多内容>>></button>
+        <a href="{% url 'cms:article_list' 0 %}" class="button-main-css">更多内容>>></a>
     </div>
     {#        <article>#}
     {#            <a href="#" class="image"><img src="{% static 'images/pic06.jpg' %}" alt=""/></a>#}

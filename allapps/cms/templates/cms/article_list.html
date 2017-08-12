@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    {% for article in article_list %}
+        <div class="title-list">
+            <div class="title-content">
+                <span class="category-name">{{ article.category.name }}</span>
+                <a class="article-name" href="{% url 'cms:article_detail' pk=article.id %}">{{ article.title }}</a>
+                <span class="follow-desc">
+                    {{ article.create_time }} 阅读 {{ article.visit_times }} 评论 {{ article.comment_count }} 喜欢 {{ article.like_times }}
+                </span>
+            </div>
+        </div>
+        <div style="height: 1em"></div>
+    {% endfor %}
+{% endblock %}

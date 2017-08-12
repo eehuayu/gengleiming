@@ -3,7 +3,7 @@
 
 {% block main %}
     <br>
-    <form class="form-horizontal" role="form" action="{% url 'cms:write' %}" method="post" onsubmit="return do_content();">
+    <form class="form-horizontal" role="form" action="{% url 'cms:article_create' %}" method="post" onsubmit="return do_content();">
         {% csrf_token %}
         <div class="form-group">
                 <div class="col-md-10">
@@ -13,10 +13,11 @@
                     <button type="submit" class="button-main-css" style="width: 100%" id="save">发布文章</button>
                 </div>
         </div>
+    {{ form.errors }}
         <div class="form-group">
             <div class="col-md-6">
                 <select name="category" id="id_category" name="category" class="select-main-css" required>
-                    {% for category in categories %}
+                    {% for category in category_list %}
                         <option value="{{ category.id }}">{{ category.name }}</option>
                     {% endfor %}
                 </select>
@@ -111,10 +112,8 @@
             'list',  // 列表
             'justify',  // 对齐方式
             'quote',  // 引用
-            'emoticon',  // 表情
             'image',  // 插入图片
             'table',  // 表格
-            {#            'video',  // 插入视频#}
             'code',  // 插入代码
             'undo',  // 撤销
             'redo'  // 重复

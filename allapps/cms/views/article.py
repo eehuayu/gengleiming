@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 from allapps.cms import forms
 from allapps.cms import models
@@ -11,8 +11,17 @@ class ArticleListView(mixins.ListViewWithCategory):
     """
     文章列表
     """
-    template_name = "cms/save_success.html"
+    template_name = "cms/article_list.html"
     model = models.Article
+
+    def get_queryset(self):
+        cid = int(self.kwargs['cid'])
+
+        if not cid:
+            return super(ArticleListView, self).get_queryset()
+
+        query_set = self.model.objects.filter(category_id=cid)
+        return query_set
 
 
 class ArticleCreateView(mixins.CreateViewWithCategory, PermissionRequiredMixin):
@@ -20,10 +29,10 @@ class ArticleCreateView(mixins.CreateViewWithCategory, PermissionRequiredMixin):
     创建文章
     """
     permission_required = ("dormitory.write", )
-    template_name = "cms/write.html"
+    template_name = "cms/article_create.html"
     model = models.Article
     form_class = forms.ArticleForm
-    success_url = reverse_lazy("cms:article_list")
+    success_url = reverse_lazy("cms:article_list", args=[0])
 
     def form_valid(self, form):
         f = form.save(False)
