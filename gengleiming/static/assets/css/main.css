@@ -1361,7 +1361,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
     color: #3d4449;
-    font-family: "Roboto Slab", serif;
+    /*font-family: "Roboto Slab", serif;*/
     font-weight: 700;
     line-height: 1.5;
     margin: 0 0 1em 0;
@@ -2700,7 +2700,7 @@ dl dd {
 }
 
 #main > .inner > section {
-    padding: 6em 0 4em 0;
+    padding: 2em 0 4em 0;
     border-top: solid 2px rgba(210, 215, 217, 0.75);
 }
 
@@ -3020,7 +3020,7 @@ dl dd {
 #header .logo {
     border-bottom: 0;
     color: inherit;
-    font-family: "Roboto Slab", serif;
+    /*font-family: "Roboto Slab", serif;*/
     font-size: 1.125em;
 }
 

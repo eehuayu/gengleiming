@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <div align="center">
+        <h3>{{ article.title }}</h3>
+    </div>
+    <hr>
+    <div>
+        {{ article.content|safe }}
+    </div>
+    <hr>
+    posted {{ article.create_time }} 阅读 {{ article.visit_times }} 评论 {{ article.comment_count }}
+
+{% endblock %}
