@@ -29,9 +29,9 @@ def location(x):
 SECRET_KEY = '*w2g1&jdag=y0%-0xdcv@kzai)t2=04)p=x3f#8^fb%po$mf!f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False if os.environ.get("ONLINE") == "True" else True
 
-ALLOWED_HOSTS = ['www.fumingbanshen.com', '127.0.0.1']
+ALLOWED_HOSTS = ['www.fumingbanshen.com', '127.0.0.1', 'www.gengleiming.com']
 
 # 登录和注销之后重定向的页面
 LOGIN_REDIRECT_URL = '/'
