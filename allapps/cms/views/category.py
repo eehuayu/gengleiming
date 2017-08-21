@@ -3,7 +3,7 @@ from django.views import generic
 from pymysql import IntegrityError
 
 from allapps.cms import models
-from share import error_code
+from config import error_code
 from share.log import logger
 
 
