@@ -4,7 +4,10 @@ from django.urls import reverse_lazy, reverse
 from allapps.cms import forms
 from allapps.cms import models
 from allapps.cms import mixins
+from allapps.cms.utils import get_ip
+from config import redis_key
 from share.log import logger
+from share.rds import rds
 
 
 class ArticleListView(mixins.ListViewWithCategory):
@@ -59,3 +62,21 @@ class ArticleDetailView(mixins.DetailViewWithCategory):
     """
     template_name = "cms/article_detail.html"
     model = models.Article
+
+    def get_context_data(self, **kwargs):
+        ctx = super(ArticleDetailView, self).get_context_data(**kwargs)
+
+        request_ip = get_ip(self.request)
+        rds_key = redis_key.IP_VISIT.format(request_ip)
+
+        ret = rds.get(rds_key)
+
+        # 一个IP一天之内只统计一次浏览数
+        if not ret:
+            self.object.visit_times += 1
+            self.object.save()
+            rds.setex(redis_key.IP_VISIT, 1, redis_key.IP_VISIT_EXPIRE_TIME)
+        else:
+            ctx['disabled'] = 1
+
+        return ctx

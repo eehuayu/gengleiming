@@ -37,4 +37,4 @@ class CategoryCreateView(generic.CreateView):
             return JsonResponse(dict(
                 ret=error_code.UNKNOWN_ERROR,
                 error_msg=error_code.UNKNOWN_ERROR_DESC,
-           ))
+            ))
