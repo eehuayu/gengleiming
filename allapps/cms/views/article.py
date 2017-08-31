@@ -75,7 +75,7 @@ class ArticleDetailView(mixins.DetailViewWithCategory):
         if not ret:
             self.object.visit_times += 1
             self.object.save()
-            rds.setex(redis_key.IP_VISIT, 1, redis_key.IP_VISIT_EXPIRE_TIME)
+            rds.setex(rds_key, 1, redis_key.IP_VISIT_EXPIRE_TIME)
         else:
             ctx['disabled'] = 1
 
