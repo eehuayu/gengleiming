@@ -67,7 +67,7 @@ class ArticleDetailView(mixins.DetailViewWithCategory):
         ctx = super(ArticleDetailView, self).get_context_data(**kwargs)
 
         request_ip = get_ip(self.request)
-        rds_key = redis_key.IP_VISIT.format(request_ip)
+        rds_key = redis_key.IP_VISIT.format(ip=request_ip)
 
         ret = rds.get(rds_key)
 
