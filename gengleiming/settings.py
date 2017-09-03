@@ -162,7 +162,7 @@ LOGGING = {
     },
     'handlers': {
         'django_file': {
-            'level': 'DEBUG',  # debug级别的log会打印出来，这里可以根据测试环境设置成动态的
+            'level': 'ERROR',  # debug级别的log会打印出来，这里可以根据测试环境设置成动态的
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': os.path.join(BASE_DIR, "logs/django.log"),
             'maxBytes': 1024 * 1024 * 300,  # 单个文件的大小
