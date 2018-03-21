@@ -11,7 +11,7 @@ class CacheHelper:
         return self.rds.get(self.redis_key)
 
     def set_ex(self):
-        self.rds.setex(self.redis_key, self.ex_time)
+        self.rds.setex(self.redis_key, "1", self.ex_time)
 
 
 class UpvoteHelper(CacheHelper):
