@@ -24,6 +24,7 @@
 {% endblock %}
 
 {% block scripts %}
+    {{ block.super }}
     <script>
     function upvote(pk) {
         $.ajax({
