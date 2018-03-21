@@ -12,7 +12,7 @@
     <hr>
     <div align="right">
         <a id="upvote" href="javascript:void(0);" class="button-main-css small"
-           onclick="upvote({{ article.pk }})">赞|{{ article.like_times }}</a>
+           onclick="upvote({{ article.pk }})">赞 | {{ article.like_times }}</a>
         {#    </div>#}
         {#    <div align="right">#}
         <span style="margin-left: 3em">
@@ -38,7 +38,7 @@
                     $.alert("请不要重复点赞");
                     return
                 }
-                $("#upvote").text("赞|" + result);
+                $("#upvote").text("赞 | " + result);
             }
 
         })
