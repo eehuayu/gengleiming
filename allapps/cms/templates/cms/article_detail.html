@@ -29,7 +29,10 @@
         $.ajax({
             type: "post",
             url: "{% url 'cms:article_upvote' %}",
-            data: {pk: pk},
+            data: {
+                "pk": pk,
+                "csrfmiddlewaretoken": "{{ csrf_token }}"
+            },
             success: function (result) {
                 if(result === -1) {
                     $.alert("请不要重复点赞");
