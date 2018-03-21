@@ -1,9 +1,11 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.http import HttpResponse
 from django.urls import reverse_lazy, reverse
 
 from allapps.cms import forms
 from allapps.cms import models
 from allapps.cms import mixins
+from allapps.cms.cache import cache_helper
 from allapps.cms.utils import get_ip
 from config import redis_key
 from share.log import logger
@@ -63,20 +65,58 @@ class ArticleDetailView(mixins.DetailViewWithCategory):
     template_name = "cms/article_detail.html"
     model = models.Article
 
+    def cache(self):
+        request_ip = get_ip(self.request)
+        cache = cache_helper.VisitHelper(ip=request_ip)
+        return cache
+
+    def get_cache(self):
+        return self.cache().get()
+
+    def set_cache(self):
+        return self.cache().set_ex()
+
     def get_context_data(self, **kwargs):
         ctx = super(ArticleDetailView, self).get_context_data(**kwargs)
 
-        request_ip = get_ip(self.request)
-        rds_key = redis_key.IP_VISIT.format(ip=request_ip)
-
-        ret = rds.get(rds_key)
-
         # 一个IP一天之内只统计一次浏览数
-        if not ret:
+        if not self.get_cache():
             self.object.visit_times += 1
             self.object.save()
-            rds.setex(rds_key, 1, redis_key.IP_VISIT_EXPIRE_TIME)
+            self.set_cache()
         else:
             ctx['disabled'] = 1
 
         return ctx
+
+
+class ArticleUpvoteView(mixins.UpdateViewWithCategory):
+    """ 点赞 """
+
+    def cache(self):
+        request_ip = get_ip(self.request)
+        cache = cache_helper.UpvoteHelper(ip=request_ip)
+        return cache
+
+    def get_cache(self):
+        return self.cache().get()
+
+    def set_cache(self):
+        return self.cache().set_ex()
+
+    def post(self, request, *args, **kwargs):
+        pk = int(request.POST.get("pk") or 0)
+        obj = models.Article.objects.filter(id=pk).first()
+
+        if not obj:
+            return HttpResponse(0)
+
+        if self.get_cache():
+            return HttpResponse(-1)
+
+        # 24小时内没点赞，那么点赞次数加一
+        obj.like_times += 1
+        obj.save()
+        self.set_cache()
+
+        return HttpResponse(obj.like_times)

@@ -29,3 +29,10 @@ class DetailViewWithCategory(generic.DetailView):
         ctx = super(DetailViewWithCategory, self).get_context_data(**kwargs)
         ctx['category_list'] = Category.objects.all()
         return ctx
+
+
+class UpdateViewWithCategory(generic.UpdateView):
+    def get_context_data(self, **kwargs):
+        ctx = super(UpdateViewWithCategory, self).get_context_data(**kwargs)
+        ctx['category_list'] = Category.objects.all()
+        return ctx

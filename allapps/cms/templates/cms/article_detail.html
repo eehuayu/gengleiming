@@ -11,22 +11,35 @@
     </div>
     <hr>
     <div align="right">
-        <a href="javascript:void(0);" class="button-main-css small" onclick="$.alert('developing ... ...')">评论</a>
+        <a id="upvote" href="javascript:void(0);" class="button-main-css small"
+           onclick="upvote({{ article.pk }})">赞|{{ article.like_times }}</a>
         {#    </div>#}
         {#    <div align="right">#}
         <span style="margin-left: 3em">
-            posted {{ article.create_time }} 阅读 {{ article.visit_times }} 评论 {{ article.comment_count }}
+            posted {{ article.create_time }} 阅读 {{ article.visit_times }}
         </span>
     </div>
 
-    <!-- 赞 -->
-    <div style="display: none">
-        <button {% if disabled %}
-            disabled
-        {% endif %} >赞
-        </button>
-
-    </div>
-
     <div style="height: 10em"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+    function upvote(pk) {
+        $.ajax({
+            type: "post",
+            url: "{% url 'cms:article_upvote' %}",
+            data: {pk: pk},
+            success: function (result) {
+                if(result === -1) {
+                    $.alert("请不要重复点赞");
+                    return
+                }
+                $("#upvote").text("赞|" + result);
+            }
+
+        })
+    }
+    </script>
+
 {% endblock %}
