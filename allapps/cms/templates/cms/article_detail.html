@@ -34,7 +34,7 @@
                 "csrfmiddlewaretoken": "{{ csrf_token }}"
             },
             success: function (result) {
-                if(result === -1) {
+                if(Number(result) === -1) {
                     $.alert("请不要重复点赞");
                     return
                 }
