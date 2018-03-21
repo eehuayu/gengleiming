@@ -63,7 +63,6 @@ class Article(Base):
 
     class Meta:
         verbose_name = verbose_name_plural = "文章"
-        permissions = (("write", "写文章"), )
         ordering = ("-create_time", )
 
 
