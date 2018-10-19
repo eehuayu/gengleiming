@@ -24,7 +24,7 @@ class Category(Base):
 
 
 class Article(Base):
-    user = models.ForeignKey(User, verbose_name="用户", related_name="user")
+    user = models.ForeignKey(User, verbose_name="用户", related_name="user", on_delete=models.PROTECT)
     title = models.CharField(verbose_name="标题", max_length=255)
     content = models.TextField(verbose_name="内容")
     category = models.ForeignKey(Category, verbose_name="类别", on_delete=models.PROTECT, related_name="contents")   # 删除外键之前要先删除级联，否则报错
@@ -67,7 +67,7 @@ class Article(Base):
 
 
 class Comment(Base):
-    article = models.ForeignKey(Article, verbose_name="文章", null=True, blank=True, related_name="comments")
+    article = models.ForeignKey(Article, verbose_name="文章", null=True, blank=True, related_name="comments", on_delete=models.CASCADE)
     content = models.TextField(verbose_name="内容")
     type = models.PositiveSmallIntegerField(verbose_name="留言的类型", choices=config.COMMENT_TYPE)
 

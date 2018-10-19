@@ -14,19 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.conf.urls import url, include
 from django.contrib import admin
+from django.urls import path, include
 
 from . import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.HomeView.as_view(), name="home"),
-    url(r'^accounts/', include("django.contrib.auth.urls", namespace='accounts')),
-    url(r'^cms/', include("allapps.cms.urls", namespace='cms')),
-    url(r'^success/', views.SuccessView.as_view(), name="success"),
-    url(r'^fail/', views.FailView.as_view(), name="fail"),
-    url(r'^unicode_test/', views.unicode_test, name="unicode_test"),
+    path('admin/', admin.site.urls),
+    path('', views.HomeView.as_view(), name="home"),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path('cms/', include("allapps.cms.urls")),
+    path('success/', views.SuccessView.as_view(), name="success"),
+    path('fail/', views.FailView.as_view(), name="fail"),
+    path('unicode_test/', views.unicode_test, name="unicode_test"),
 ]
 
 # 配置{% load static %}：runserver无需此步骤，其他服务器需要，当然用{% load staticfiles %}标签可代替此步骤
