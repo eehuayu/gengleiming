@@ -6,9 +6,13 @@
         <h3>{{ article.title }}</h3>
     </div>
     <hr>
-    <div>
+    <div id="content" style="display: none">
         {{ article.content|safe }}
     </div>
+
+    <div id="article_content">
+    </div>
+
     <hr>
     <div align="right">
         <a id="upvote" href="javascript:void(0);" class="button-main-css small"
@@ -26,24 +30,35 @@
 {% block scripts %}
     {{ block.super }}
     <script>
-    function upvote(pk) {
-        $.ajax({
-            type: "post",
-            url: "{% url 'cms:article_upvote' %}",
-            data: {
-                "pk": pk,
-                "csrfmiddlewaretoken": "{{ csrf_token }}"
-            },
-            success: function (result) {
-                if(Number(result) === -1) {
-                    $.alert("请不要重复点赞");
-                    return
-                }
-                $("#upvote").text("赞 | " + result);
-            }
+        $(function() {
+            //获取要转换的文字
+            var text = $("#content").text();
+            //创建实例
+            var converter = new showdown.Converter();
+            //进行转换
+            var html = converter.makeHtml(text);
+            //展示到对应的地方  result便是id名称
+            $("#article_content").html(html);
+        });
 
-        })
-    }
+        function upvote(pk) {
+            $.ajax({
+                type: "post",
+                url: "{% url 'cms:article_upvote' %}",
+                data: {
+                    "pk": pk,
+                    "csrfmiddlewaretoken": "{{ csrf_token }}"
+                },
+                success: function (result) {
+                    if (Number(result) === -1) {
+                        $.alert("请不要重复点赞");
+                        return
+                    }
+                    $("#upvote").text("赞 | " + result);
+                }
+
+            })
+        }
     </script>
 
 {% endblock %}
