@@ -1,6 +1,6 @@
 *.pyc
 
-.gitignore
 db.sqlite3
 .idea/
 logs/
+allapps/*/migrations/*
