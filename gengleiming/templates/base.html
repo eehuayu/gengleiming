@@ -36,7 +36,7 @@
                         <ul class="icons" style="height: 2em;">
                             {% if request.user.is_authenticated %}
                                 <li style="height: 2em;">
-                                    <a href="{% url 'accounts:logout' %}" class="a-main-css" style="position: absolute; bottom: 0.5em;right: 0em;">Logout</a>
+                                    <a href="accounts/logout" class="a-main-css" style="position: absolute; bottom: 0.5em;right: 0em;">Logout</a>
                                 </li>
                                 <li style="height: 2em;">
                                     <a href="{% url 'cms:manage' %}" class="a-main-css" style="position: absolute; bottom: 0.5em;right: 8em;">管理</a>
@@ -47,7 +47,7 @@
 
                             {% else %}
                                 <li style="height: 2em;">
-                                    <a href="{% url 'accounts:login' %}" class="a-main-css" style="position:absolute;bottom:0.5em;right:0em">Login</a>
+                                    <a href="accounts/login" class="a-main-css" style="position:absolute;bottom:0.5em;right:0em">Login</a>
                                 </li>
                             {% endif %}
                         </ul>

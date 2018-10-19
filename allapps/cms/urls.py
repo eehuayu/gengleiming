@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from allapps.cms.views import category
 from allapps.cms.views import article
 
+app_name = "cms"
+
 urlpatterns = [
     url("article/list/(?P<cid>[\d]+)/$", article.ArticleListView.as_view(), name="article_list"),
     url("article/create/$", login_required(article.ArticleCreateView.as_view()), name="article_create"),

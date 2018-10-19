@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomeView.as_view(), name="home"),
     path('accounts/', include("django.contrib.auth.urls")),
-    path('cms/', include("allapps.cms.urls")),
+    path('cms/', include("allapps.cms.urls", namespace="cms")),
     path('success/', views.SuccessView.as_view(), name="success"),
     path('fail/', views.FailView.as_view(), name="fail"),
     path('unicode_test/', views.unicode_test, name="unicode_test"),
