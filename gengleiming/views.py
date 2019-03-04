@@ -1,4 +1,3 @@
-
 from allapps.cms import models
 from allapps.cms import mixins
 
