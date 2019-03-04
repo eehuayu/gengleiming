@@ -13,20 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
+from django.urls import path, include
 
 from . import views
 
 urlpatterns = [
-    url('admin/', admin.site.urls),
-    url('', views.HomeView.as_view(), name="home"),
-    url('accounts/', include("django.contrib.auth.urls")),
-    url('cms/', include("allapps.cms.urls", namespace="cms")),
-    url('success/', views.SuccessView.as_view(), name="success"),
-    url('fail/', views.FailView.as_view(), name="fail"),
-    url('unicode_test/', views.unicode_test, name="unicode_test"),
+    path('admin/', admin.site.urls),
+    path('', views.HomeView.as_view(), name="home"),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path('cms/', include("allapps.cms.urls", namespace="cms")),
+    path('success/', views.SuccessView.as_view(), name="success"),
+    path('fail/', views.FailView.as_view(), name="fail"),
+    path('unicode_test/', views.unicode_test, name="unicode_test"),
 ]
 
 # 配置{% load static %}：runserver无需此步骤，其他服务器需要，当然用{% load staticfiles %}标签可代替此步骤
