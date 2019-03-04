@@ -16,16 +16,3 @@ class SuccessView(mixins.TemplateViewWithCategory):
 
 class FailView(mixins.TemplateViewWithCategory):
     template_name = "gengleiming/fail.html"
-
-
-@csrf_exempt
-def unicode_test(request):
-    if request.method != "GET":
-        return HttpResponse("method is not post, method is " + request.method)
-
-    data = request.GET.get("data")
-
-    if not data:
-        return HttpResponse("data is None.")
-
-    return HttpResponse(data)
