@@ -7,7 +7,7 @@ proc_name = 'gengleiming_web'
 worker_class = 'gevent'
 bind = ['0.0.0.0:33000']
 workers = 1
-# timeout = 1800
+timeout = 1800
 # for debug
 # accesslog = '-'
 # loglevel = 'debug'
